@@ -3,31 +3,54 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+    --foreground-rgb: 0, 0, 0;
+    --background-start-rgb: 214, 219, 220;
+    --background-end-rgb: 255, 255, 255;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+    :root {
+        --foreground-rgb: 255, 255, 255;
+        --background-start-rgb: 0, 0, 0;
+        --background-end-rgb: 0, 0, 0;
+    }
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+    color: rgb(var(--foreground-rgb));
+    background: linear-gradient(
+            to bottom,
+            transparent,
+            rgb(var(--background-end-rgb))
+        )
+        rgb(var(--background-start-rgb));
 }
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+    .text-balance {
+        text-wrap: balance;
+    }
+}
+
+/*
+This style is for top 1000 terms
+*/
+.shadow-btn {
+    background-color: #000000;
+    box-shadow: -1px 3px 3px #e5e5e5, 0 5px 1px #e1e1e1, 0 7px 2px #d5d5d5,
+        0px 9px 0 3px #d1d1d1, 0px 10px 0 3px #cfcfcf, 0px 13px 2px #cdcdcd,
+        0px 15px 1px #cbcbcb, 0px 17px 0px #838383, 0 -3px 1px #fffafa,
+        0 -5px 1px #ffffff, 0 -9px 2px -3px, 14px 1px 12px -6px inset;
+    color: skyblue;
+    padding: 15px;
+    cursor: pointer;
+    font-family: Open Sans;
+    text-align: center;
+    transition: all 0.3s ease-out 0s;
+    width: 150px;
+    border: 1px solid darkgrey;
+    outline: 1px solid ghostwhite;
+    border-radius: 50%;
+    font-weight: 700;
+    height: 125px;
 }
