@@ -74,87 +74,112 @@ const ConnectedNode: React.FC = () => {
 
     return (
         <div
-            className="node-container relative"
             style={{
-                width: `${containerWidth}px`,
-                height: `${containerHeight}px`,
-                marginTop: "-200px",
+                //background: "blanchedalmond",
+                padding: "25px 0",
+                borderBottom: "3px dashed #e2e7e7",
+                // filter: "grayscale(1)",
+                //boxShadow: "0px 1px 13px -5px #ccc",
             }}
         >
-            <SingleNode
-                name="Control Structure"
-                isCenter={true}
+            <div
+                className="node-container relative"
                 style={{
-                    position: "absolute",
-                    left: `${centerPoint.x - 65}px`,
-                    top: `${centerPoint.y - 65}px`,
+                    width: `${containerWidth}px`,
+                    height: `${containerHeight}px`,
+                    marginTop: "-200px",
+                    marginBottom: "-200px",
                 }}
-            />
-            {positions.map((position, i) => (
+            >
                 <SingleNode
-                    key={position.term.id}
-                    name={position.term.name}
-                    isCenter={false}
+                    name="Control Structure"
+                    isCenter={true}
                     style={{
                         position: "absolute",
-                        left: `${position.x}px`,
-                        top: `${position.y}px`,
+                        left: `${centerPoint.x - 65}px`,
+                        top: `${centerPoint.y - 65}px`,
                     }}
                 />
-            ))}
-            <svg
-                className="absolute top-0 left-0 w-full h-full"
-                style={{ overflow: "visible" }}
-            >
-                <defs>
-                    <marker
-                        id="customArrowhead"
-                        markerWidth="10"
-                        markerHeight="7"
-                        refX="0"
-                        refY="3.5"
-                        orient="auto"
-                    >
-                        <path d="M0,0 L10,3.5 L0,7 z" fill="blue" />
-                    </marker>
-                    <linearGradient
-                        id="gradient"
-                        x1="0%"
-                        y1="0%"
-                        x2="100%"
-                        y2="0%"
-                    >
-                        <stop
-                            offset="0%"
-                            style={{ stopColor: "blue", stopOpacity: 1 }}
-                        />
-                        <stop
-                            offset="100%"
-                            style={{ stopColor: "red", stopOpacity: 1 }}
-                        />
-                    </linearGradient>
-                </defs>
+                {positions.map((position, i) => (
+                    <SingleNode
+                        key={position.term.id}
+                        name={position.term.name}
+                        isCenter={false}
+                        style={{
+                            position: "absolute",
+                            left: `${position.x}px`,
+                            top: `${position.y}px`,
+                        }}
+                    />
+                ))}
+                <svg
+                    className="absolute top-0 left-0 w-full h-full"
+                    style={{ overflow: "visible" }}
+                >
+                    <defs>
+                        <marker
+                            id="customArrowhead"
+                            markerWidth="10"
+                            markerHeight="7"
+                            refX="0"
+                            refY="3.5"
+                            orient="auto"
+                        >
+                            <path d="M0,0 L10,3.5 L0,7 z" fill="#e2e7e7" />
+                        </marker>
+                        <linearGradient
+                            id="gradient"
+                            x1="0%"
+                            y1="0%"
+                            x2="100%"
+                            y2="0%"
+                        >
+                            <stop
+                                offset="0%"
+                                style={{ stopColor: "blue", stopOpacity: 1 }}
+                            />
+                            <stop
+                                offset="25%"
+                                style={{ stopColor: "#e2e7e7", stopOpacity: 1 }}
+                            />
+                            <stop
+                                offset="50%"
+                                style={{ stopColor: "red", stopOpacity: 1 }}
+                            />
+                            <stop
+                                offset="75%"
+                                style={{ stopColor: "e2e7e7", stopOpacity: 1 }}
+                            />
+                            <stop
+                                offset="100%"
+                                style={{ stopColor: "blue", stopOpacity: 1 }}
+                            />
+                        </linearGradient>
+                    </defs>
 
-                {positions.map((position, i) => {
-                    const path = createZigzagPath(
-                        centerPoint.x,
-                        centerPoint.y,
-                        position.x,
-                        position.y
-                    );
-                    return (
-                        <path
-                            key={`zigzag-${i}`}
-                            d={path}
-                            fill="none"
-                            stroke="url(#gradient)"
-                            strokeWidth="2"
-                            markerEnd="url(#customArrowhead)"
-                            style={{ animation: "drawPath 2s linear forwards" }}
-                        />
-                    );
-                })}
-            </svg>
+                    {positions.map((position, i) => {
+                        const path = createZigzagPath(
+                            centerPoint.x,
+                            centerPoint.y,
+                            position.x,
+                            position.y
+                        );
+                        return (
+                            <path
+                                key={`zigzag-${i}`}
+                                d={path}
+                                fill="none"
+                                stroke="url(#gradient)"
+                                strokeWidth="2"
+                                markerEnd="url(#customArrowhead)"
+                                style={{
+                                    animation: "drawPath 2s linear forwards",
+                                }}
+                            />
+                        );
+                    })}
+                </svg>
+            </div>
         </div>
     );
 };

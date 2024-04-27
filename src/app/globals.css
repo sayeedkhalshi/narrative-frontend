@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 :root {
     --foreground-rgb: 0, 0, 0;
     --background-start-rgb: 214, 219, 220;
@@ -18,13 +19,11 @@
 
 body {
     color: rgb(var(--foreground-rgb));
-    background-color: linear-gradient(
-            to bottom,
-            transparent,
-            rgb(var(--background-end-rgb))
-        )
-        rgb(var(--background-start-rgb));
+    background-image: url("/images/texture/gray-texture.jpeg");
+    background-color: white;
     background-blend-mode: color-burn;
+    font-family: "open sans";
+    background-size: contain;
 }
 
 @layer utilities {
@@ -42,18 +41,17 @@ This style is for top 1000 terms
         0px 9px 0 3px #d1d1d1, 0px 10px 0 3px #cfcfcf, 0px 13px 2px #cdcdcd,
         0px 15px 1px #cbcbcb, 0px 17px 0px #838383, 0 -3px 1px #fffafa,
         0 -5px 1px #ffffff, 0 -9px 2px -3px, 14px 1px 12px -6px inset;
-    color: brown;
+    color: white;
     padding: 15px;
     cursor: pointer;
-    font-family: Open Sans;
     text-align: center;
     transition: all 0.3s ease-out 0s;
-    width: 150px;
+    width: 115px;
     border: 1px solid darkgrey;
     outline: 1px solid ghostwhite;
     border-radius: 50%;
     font-weight: 700;
-    height: 125px;
+    height: 100px;
     position: absolute;
     z-index: 99;
 }
@@ -62,9 +60,10 @@ This style is for top 1000 terms
     background-color: #f1f1f1;
     box-shadow: 0 3px 0 #e4e4e4, 0 5px 0 #ccd0cc, 0 7px 0 #b7beb7,
         0 9px 0 2px #a4aaa4, 0 11px 0 3px #8f8f8f;
-    color: threedshadow;
+    color: #803c0e;
+    font-weight: 700;
+    font-family: monospace;
     cursor: pointer;
-    font-family: "Open Sans", Helvetica, Arial, sans-serif;
     text-align: center;
     transition: all 0.3s ease-out 0s;
     width: 20%;
@@ -76,10 +75,12 @@ This style is for top 1000 terms
     text-shadow: 3px 3px 0 #999, 5px 5px 0 #ddd, 7px 7px 0 #ccc, 9px 9px 0 #bbb;
     font-size: 2rem;
     font-weight: 900;
+    color: black;
+    border-bottom: 4px solid blue;
 }
 
 .filter-shadow {
-    filter: drop-shadow(2px 4px 6px black);
+    filter: drop-shadow(2px 4px 6px green);
 }
 
 .node-container {
@@ -98,6 +99,8 @@ This style is for top 1000 terms
     border-radius: 3px;
     max-width: 100px;
     z-index: 99;
+    background-color: #e2e7e7;
+    color: #555555;
 }
 
 svg {
