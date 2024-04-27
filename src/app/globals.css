@@ -41,7 +41,7 @@ This style is for top 1000 terms
         0px 9px 0 3px #d1d1d1, 0px 10px 0 3px #cfcfcf, 0px 13px 2px #cdcdcd,
         0px 15px 1px #cbcbcb, 0px 17px 0px #838383, 0 -3px 1px #fffafa,
         0 -5px 1px #ffffff, 0 -9px 2px -3px, 14px 1px 12px -6px inset;
-    color: skyblue;
+    color: threedshadow;
     padding: 15px;
     cursor: pointer;
     font-family: Open Sans;
@@ -53,4 +53,24 @@ This style is for top 1000 terms
     border-radius: 50%;
     font-weight: 700;
     height: 125px;
+}
+
+.nav-link {
+    background-color: #f1f1f1;
+    box-shadow: 0 3px 0 #e4e4e4, 0 5px 0 #ccd0cc, 0 7px 0 #b7beb7,
+        0 9px 0 2px #a4aaa4, 0 11px 0 3px #8f8f8f;
+    color: threedshadow;
+    cursor: pointer;
+    font-family: "Open Sans", Helvetica, Arial, sans-serif;
+    text-align: center;
+    transition: all 0.3s ease-out 0s;
+    width: 20%;
+    padding: 20px 50px;
+    list-style: none;
+}
+
+.logo-text {
+    text-shadow: 3px 3px 0 #999, 5px 5px 0 #ddd, 7px 7px 0 #ccc, 9px 9px 0 #bbb;
+    font-size: 2rem;
+    font-weight: 900;
 }
