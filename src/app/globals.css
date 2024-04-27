@@ -36,11 +36,12 @@ body {
 This style is for top 1000 terms
 */
 .shadow-btn {
-    background-color: #000000;
+    background-color: #085108;
     box-shadow: -1px 3px 3px #e5e5e5, 0 5px 1px #e1e1e1, 0 7px 2px #d5d5d5,
         0px 9px 0 3px #d1d1d1, 0px 10px 0 3px #cfcfcf, 0px 13px 2px #cdcdcd,
         0px 15px 1px #cbcbcb, 0px 17px 0px #838383, 0 -3px 1px #fffafa,
-        0 -5px 1px #ffffff, 0 -9px 2px -3px, 14px 1px 12px -6px inset;
+        0 -5px 1px #ffffff;
+    /* 0 -9px 2px -3px, 14px 1px 12px -6px inset*/
     color: white;
     padding: 15px;
     cursor: pointer;
@@ -57,30 +58,46 @@ This style is for top 1000 terms
 }
 
 .nav-link {
-    background-color: #f1f1f1;
+    background-color: #000;
     box-shadow: 0 3px 0 #e4e4e4, 0 5px 0 #ccd0cc, 0 7px 0 #b7beb7,
         0 9px 0 2px #a4aaa4, 0 11px 0 3px #8f8f8f;
-    color: #803c0e;
+    color: #fff;
     font-weight: 700;
     font-family: monospace;
     cursor: pointer;
     text-align: center;
     transition: all 0.3s ease-out 0s;
     width: 20%;
-    padding: 20px 50px;
+    padding: 15px 35px;
     list-style: none;
+    text-shadow: 0px 0px 2px white, 1px -20px 3px white;
+}
+
+.nav-link:hover a {
+    text-shadow: 0px 0px 1px white, 1px -20px 4px white;
 }
 
 .logo-text {
-    text-shadow: 3px 3px 0 #999, 5px 5px 0 #ddd, 7px 7px 0 #ccc, 9px 9px 0 #bbb;
-    font-size: 2rem;
+    /* text-shadow: 3px 3px 0 #999, 5px 5px 0 #ddd, 7px 7px 0 #ccc, 9px 9px 0 #bbb;*/
+
+    box-shadow: 2px 2px #bf6565, 4px 4px #592e2a, 6px 6px #a6442e,
+        8px 8px #f26d3d, 10px 10px #f27c38, -2px -2px #f26849, -4px -4px #f2d544,
+        -6px -6px #f2cf66, -8px -8px #f2a30f, -10px -10px #260101,
+        -8px 2px 0px #a6a37d, -9px 4px 0px #eeedc8, -12px 6px 0px #2b1c8a,
+        3px 8px 0px #250c59, 4px 10px 0px #428964, 5px -2px 0px #a6a37d,
+        6px -4px 0px #eeedc9, -9px -6px 0px #b0afd9, 8px -8px 0px #3b42d9,
+        10px -10px 0px #5c73f2;
+    padding: 0px 9px;
+    margin-top: 12px;
+    background: darkgreen;
+    font-size: 1.7rem;
     font-weight: 900;
-    color: black;
+    color: white;
     border-bottom: 4px solid blue;
 }
 
 .filter-shadow {
-    filter: drop-shadow(2px 4px 6px green);
+    filter: drop-shadow(0px 1px 2px black);
 }
 
 .node-container {
