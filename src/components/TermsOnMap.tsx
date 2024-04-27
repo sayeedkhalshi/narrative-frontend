@@ -1,5 +1,7 @@
+import ConnectedNode from "./ConnectedNode";
+
 const TermsOnMap: React.FC = () => {
-    return <button className={`shadow-btn mx-auto`}>Control Structure</button>;
+    return <ConnectedNode />;
 };
 
 export default TermsOnMap;
