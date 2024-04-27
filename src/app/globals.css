@@ -18,12 +18,13 @@
 
 body {
     color: rgb(var(--foreground-rgb));
-    background: linear-gradient(
+    background-color: linear-gradient(
             to bottom,
             transparent,
             rgb(var(--background-end-rgb))
         )
         rgb(var(--background-start-rgb));
+    background-blend-mode: color-burn;
 }
 
 @layer utilities {
@@ -41,7 +42,7 @@ This style is for top 1000 terms
         0px 9px 0 3px #d1d1d1, 0px 10px 0 3px #cfcfcf, 0px 13px 2px #cdcdcd,
         0px 15px 1px #cbcbcb, 0px 17px 0px #838383, 0 -3px 1px #fffafa,
         0 -5px 1px #ffffff, 0 -9px 2px -3px, 14px 1px 12px -6px inset;
-    color: threedshadow;
+    color: brown;
     padding: 15px;
     cursor: pointer;
     font-family: Open Sans;
@@ -53,6 +54,8 @@ This style is for top 1000 terms
     border-radius: 50%;
     font-weight: 700;
     height: 125px;
+    position: absolute;
+    z-index: 99;
 }
 
 .nav-link {
@@ -77,4 +80,35 @@ This style is for top 1000 terms
 
 .filter-shadow {
     filter: drop-shadow(2px 4px 6px black);
+}
+
+.node-container {
+    position: relative;
+    margin: 0px auto 0;
+}
+
+.sub-terms {
+    box-shadow: 2px 2px #bf6565, 4px 4px #592e2a, 6px 6px #a6442e,
+        8px 8px #f26d3d, 10px 10px #f27c38, -2px -2px #f26849, -4px -4px #f2d544,
+        -6px -6px #f2cf66, -8px -8px #f2a30f, -10px -10px #260101,
+        -8px 2px 0px #a6a37d, -9px 4px 0px #eeedc8, -12px 6px 0px #2b1c8a,
+        3px 8px 0px #250c59, 4px 10px 0px #428964, 5px -2px 0px #a6a37d,
+        6px -4px 0px #eeedc9, -9px -6px 0px #b0afd9, 8px -8px 0px #3b42d9,
+        10px -10px 0px #5c73f2;
+    border-radius: 3px;
+    max-width: 100px;
+    z-index: 99;
+}
+
+svg {
+    z-index: 1;
+}
+@keyframes drawPath {
+    from {
+        stroke-dasharray: 1000;
+        stroke-dashoffset: 1000;
+    }
+    to {
+        stroke-dashoffset: 0;
+    }
 }

@@ -1,11 +1,25 @@
-type SingleNodeProps = {
+interface SingleNodeProps {
     name: string;
-};
+    id?: string;
+    style?: React.CSSProperties;
+    isCenter: boolean;
+}
 
-const SingleNode: React.FC<SingleNodeProps> = ({ name }) => {
+const SingleNode: React.FC<SingleNodeProps> = ({
+    name,
+    id,
+    style,
+    isCenter,
+}) => {
     return (
-        <button className={`shadow-btn mx-auto filter-shadow`}>
-            Control Structure
+        <button
+            id={id}
+            style={style}
+            className={`${
+                isCenter ? "shadow-btn mx-auto filter-shadow" : "sub-terms"
+            }`}
+        >
+            {name}
         </button>
     );
 };
