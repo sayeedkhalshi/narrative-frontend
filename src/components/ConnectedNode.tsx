@@ -1,8 +1,11 @@
-import React from "react";
+"use client";
+
+import React, { useEffect, useRef, useState } from "react";
 import SingleNode from "./SingleNode";
 import { testTermsList } from "@/utils/testTermsList";
 
 const ConnectedNode: React.FC = () => {
+    const [animationEnded, setAnimatedEnded] = useState(false);
     const numberOfElements = testTermsList.length;
     const distanceFromCenter = 250;
     const angle = (2 * Math.PI) / numberOfElements;
@@ -72,6 +75,30 @@ const ConnectedNode: React.FC = () => {
         return path;
     }
 
+    const animationRef = useRef(null);
+
+    function handleAnimationEnd() {
+        console.log("animation ended!");
+        setAnimatedEnded(true);
+    }
+
+    useEffect(() => {
+        const animationElement: any = animationRef.current;
+
+        if (animationElement) {
+            animationElement?.addEventListener("endEvent", handleAnimationEnd);
+        }
+
+        return () => {
+            if (animationElement) {
+                animationElement.removeEventListener(
+                    "endEvent",
+                    handleAnimationEnd
+                );
+            }
+        };
+    }, []);
+
     return (
         <div
             style={{
@@ -87,8 +114,8 @@ const ConnectedNode: React.FC = () => {
                 style={{
                     width: `${containerWidth}px`,
                     height: `${containerHeight}px`,
-                    marginTop: "-200px",
-                    marginBottom: "-200px",
+                    marginTop: "-60px",
+                    marginBottom: "-120px",
                 }}
             >
                 <SingleNode
@@ -107,8 +134,21 @@ const ConnectedNode: React.FC = () => {
                         isCenter={false}
                         style={{
                             position: "absolute",
-                            left: `${position.x}px`,
-                            top: `${position.y}px`,
+                            left: `${
+                                position.x < 500
+                                    ? position.x - 113
+                                    : position.x + 15
+                            }px`,
+                            top: `${
+                                position.y === 200
+                                    ? position.y - 70
+                                    : position.x > 500
+                                    ? position.y - 28
+                                    : position.y
+                            }px`,
+                            visibility: "visible",
+                            opacity: `${animationEnded ? 1 : 0}`,
+                            transition: "opacity 1s eases-in",
                         }}
                     />
                 ))}
@@ -125,7 +165,7 @@ const ConnectedNode: React.FC = () => {
                             refY="3.5"
                             orient="auto"
                         >
-                            <path d="M0,0 L10,3.5 L0,7 z" fill="#e2e7e7" />
+                            <path d="M0,0 L10,3.5 L0,7 z" fill="#000" />
                         </marker>
                         <linearGradient
                             id="gradient"
@@ -153,7 +193,17 @@ const ConnectedNode: React.FC = () => {
                             <stop
                                 offset="100%"
                                 style={{ stopColor: "blue", stopOpacity: 1 }}
-                            />
+                            >
+                                {" "}
+                                <animate
+                                    ref={animationRef}
+                                    attributeName="offset"
+                                    from="100%"
+                                    to="0%"
+                                    dur="0.5s"
+                                    fill="freeze"
+                                />
+                            </stop>
                         </linearGradient>
                     </defs>
 

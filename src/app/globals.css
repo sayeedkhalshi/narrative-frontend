@@ -18,12 +18,14 @@
 }
 
 body {
-    color: rgb(var(--foreground-rgb));
-    background-image: url("/images/texture/gray-texture.jpeg");
-    background-color: white;
-    background-blend-mode: color-burn;
     font-family: "open sans";
-    background-size: contain;
+    color: rgb(var(--foreground-rgb));
+    background-image: url(/images/texture/bg-texture.jpeg);
+
+    filter: grayscale(0.5);
+    /* background-blend-mode: hard-light;
+    background-color: rgba(255, 255, 255, 0.7);
+    background-size: cover; */
 }
 
 @layer utilities {
