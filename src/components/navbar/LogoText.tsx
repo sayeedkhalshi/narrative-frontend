@@ -1,5 +1,11 @@
+import Link from "next/link";
+
 const LogoText = () => {
-    return <div className="logo-text">Learnea</div>;
+    return (
+        <Link href="/">
+            <div className="logo-text">Learnea</div>
+        </Link>
+    );
 };
 
 export default LogoText;

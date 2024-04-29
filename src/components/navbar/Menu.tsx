@@ -13,19 +13,35 @@ const Menu = () => {
                     <LogoText />
                     <div className=" lg:block lg:ml-6">
                         <div className="flex space-x-4">
-                            <Link href="#" className="nav-link">
+                            <Link href="/" className="nav-link">
                                 Home
                             </Link>
-                            <Link href="#" className="nav-link">
+                            <Link
+                                href="https://github.com/sayeedkhalshi/learnea-frontend"
+                                className="nav-link"
+                                target="_blank"
+                            >
+                                Code
+                            </Link>
+                            <Link
+                                href="https://docs.google.com/document/d/1NQoDVxIliHvuVokspC88wOGR_ZO-AQ0OgIl0sPWFNLU/edit"
+                                className="nav-link"
+                                target="_blank"
+                            >
                                 Whitepaper
                             </Link>
-                            <Link href="#" className="nav-link">
-                                Github
+                            <Link
+                                href="https://github.com/sayeedkhalshi/learnea-dev-docs"
+                                className="nav-link"
+                                target="_blank"
+                            >
+                                DevDoc
                             </Link>
-                            <Link href="#" className="nav-link">
-                                About
-                            </Link>
-                            <Link href="#" className="nav-link">
+                            <Link
+                                href="https://twitter.com/sayeedkhalshi"
+                                className="nav-link"
+                                target="_blank"
+                            >
                                 Contact
                             </Link>
                             <ConnectButton label="Login" />
