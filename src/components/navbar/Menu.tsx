@@ -1,8 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ConnectButton } from "@rainbow-me/rainbowkit";
 import LogoImage from "./LogoImage";
 import LogoText from "./LogoText";
+import { ConnectButton } from "@rainbow-me/rainbowkit";
 
 const Menu = () => {
     return (
@@ -28,7 +28,7 @@ const Menu = () => {
                             <Link href="#" className="nav-link">
                                 Contact
                             </Link>
-                            <ConnectButton />
+                            <ConnectButton label="Login" />
                         </div>
                     </div>
                 </div>

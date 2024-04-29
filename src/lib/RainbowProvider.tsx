@@ -5,46 +5,44 @@ import {
     RainbowKitProvider,
     getDefaultWallets,
     getDefaultConfig,
+    darkTheme,
+    Chain,
 } from "@rainbow-me/rainbowkit";
-import {
-    argentWallet,
-    trustWallet,
-    ledgerWallet,
-} from "@rainbow-me/rainbowkit/wallets";
-import {
-    arbitrum,
-    base,
-    mainnet,
-    optimism,
-    polygon,
-    sepolia,
-} from "wagmi/chains";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { WagmiProvider } from "wagmi";
+import { metaMaskWallet } from "@rainbow-me/rainbowkit/wallets";
 
 const { wallets } = getDefaultWallets();
+const lineaSepolia = {
+    id: 59_141,
+    name: "Linea Sepolia",
+    iconUrl: "https://s2.coinmarketcap.com/static/img/coins/64x64/27657.png",
+    iconBackground: "#fff",
+    nativeCurrency: { name: "Linea Ether", symbol: "LineaETH", decimals: 18 },
+    rpcUrls: {
+        default: { http: ["https://linea-sepolia.infura.io/v3/"] },
+    },
+    blockExplorers: {
+        default: { name: "LineaScan", url: "https://sepolia.lineascan.build" },
+    },
+    // contracts: {
+    //     multicall3: {
+    //         address: "0xca11bde05977b3631167028862be2a173976ca11",
+    //         blockCreated: 11_907_934,
+    //     },
+    // },
+} as const satisfies Chain;
 
 const config = getDefaultConfig({
-    appName: "RainbowKit demo",
-    projectId: "YOUR_PROJECT_ID",
     wallets: [
-        ...wallets,
         {
-            groupName: "Other",
-            wallets: [argentWallet, trustWallet, ledgerWallet],
+            groupName: "Recommended",
+            wallets: [metaMaskWallet],
         },
     ],
-    chains: [
-        mainnet,
-        polygon,
-        optimism,
-        arbitrum,
-        base,
-        ...(process.env.NEXT_PUBLIC_ENABLE_TESTNETS === "true"
-            ? [sepolia]
-            : []),
-    ],
-    ssr: true,
+    appName: "My RainbowKit App",
+    projectId: "YOUR_PROJECT_ID",
+    chains: [lineaSepolia],
 });
 
 const queryClient = new QueryClient();
@@ -53,7 +51,18 @@ export function RainbowProviders({ children }: { children: React.ReactNode }) {
     return (
         <WagmiProvider config={config}>
             <QueryClientProvider client={queryClient}>
-                <RainbowKitProvider>{children}</RainbowKitProvider>
+                <RainbowKitProvider
+                    modalSize="compact"
+                    theme={darkTheme({
+                        //...darkTheme.accentColors.green,
+                        accentColor: "darkgreen",
+                        accentColorForeground: "#e2e7e7",
+                        borderRadius: "large",
+                        overlayBlur: "small",
+                    })}
+                >
+                    {children}
+                </RainbowKitProvider>
             </QueryClientProvider>
         </WagmiProvider>
     );

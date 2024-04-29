@@ -1,35 +1,28 @@
-import type { Metadata } from "next";
+"use client";
 import { Inter } from "next/font/google";
-import {ReduxProvider} from "@/redux/provider"
+import "@rainbow-me/rainbowkit/styles.css";
+import { ReduxProvider } from "@/redux/provider";
 import "./globals.css";
-import Menu from '@/components/navbar/Menu';
-import '@rainbow-me/rainbowkit/styles.css';
-import { RainbowProviders } from '@/lib/RainbowProvider';
-
-
+import Menu from "@/components/navbar/Menu";
+import { RainbowProviders } from "@/lib/RainbowProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const metadata: Metadata = {
-  title: "Learnea",
-  description: "Taking humanity to the next level",
-};
-
 export default function RootLayout({
-  children,
+    children,
 }: Readonly<{
-  children: React.ReactNode;
+    children: React.ReactNode;
 }>) {
-  return (
-    <html lang="en">
-      <body className={inter.className}>
-        <ReduxProvider>
-            <RainbowProviders>
-            <Menu />
-        {children}
-        </RainbowProviders>
-        </ReduxProvider>
-        </body>
-    </html>
-  );
+    return (
+        <html lang="en">
+            <body className={inter.className}>
+                <RainbowProviders>
+                    <ReduxProvider>
+                        <Menu />
+                        {children}
+                    </ReduxProvider>
+                </RainbowProviders>
+            </body>
+        </html>
+    );
 }
