@@ -3,6 +3,9 @@ import { Inter } from "next/font/google";
 import {ReduxProvider} from "@/redux/provider"
 import "./globals.css";
 import Menu from '@/components/navbar/Menu';
+import '@rainbow-me/rainbowkit/styles.css';
+import { RainbowProviders } from '@/lib/RainbowProvider';
+
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -21,8 +24,10 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <ReduxProvider>
+            <RainbowProviders>
             <Menu />
         {children}
+        </RainbowProviders>
         </ReduxProvider>
         </body>
     </html>
