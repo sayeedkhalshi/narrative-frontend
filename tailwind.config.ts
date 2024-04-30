@@ -28,8 +28,18 @@ const config: Config = {
             animation: {
                 glow: "glow 2s infinite",
             },
+            transitionProperty: {
+                all: "all",
+            },
+            transitionDuration: {
+                "300": "300ms",
+            },
+            transitionTimingFunction: {
+                "in-out": "cubic-bezier(0.4, 0, 0.2, 1)",
+            },
         },
     },
     plugins: [],
 };
+
 export default config;

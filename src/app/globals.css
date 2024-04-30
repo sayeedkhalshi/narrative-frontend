@@ -21,7 +21,7 @@ body {
     font-family: "open sans";
     color: rgb(var(--foreground-rgb));
     background-image: url(/images/texture/bg-texture.jpeg);
-
+    font-family: "Courier New", Courier, monospace;
     filter: grayscale(0.5);
     /* background-blend-mode: hard-light;
     background-color: rgba(255, 255, 255, 0.7);
@@ -74,7 +74,9 @@ This style is for top 1000 terms
     list-style: none;
     text-shadow: 0px 0px 2px white, 1px -20px 3px white;
 }
-
+.ff-monospace button {
+    font-family: "Courier New", Courier, monospace !important;
+}
 .nav-link:hover a {
     text-shadow: 0px 0px 1px white, 1px -20px 4px white;
 }
@@ -120,6 +122,46 @@ This style is for top 1000 terms
     z-index: 99;
     background-color: #e2e7e7;
     color: #555555;
+}
+
+.form-wrapper {
+    /* box-shadow: 2px 2px #bf6565, 4px 4px #592e2a, 6px 6px #a2bb8d,
+        8px 8px #c09a8c, 10px 10px #41291c, -2px -2px #f4c6bb, -4px -4px #c4c2bc,
+        -6px -6px #1c1b1b, -8px -8px #6e685c, -10px -10px #260101,
+        -8px 2px 0px #a6a37d, -9px 4px 0px #eeedc8, -12px 6px 0px #2b1c8a,
+        3px 8px 0px #250c59, 4px 10px 0px #0d2217, 5px -2px 0px #a6a37d,
+        6px -4px 0px #eeedc9, -9px -6px 0px #b0afd9, 8px -8px 0px #3b42d9,
+        10px -10px 0px #5c73f2;
+    background-color: #137b13; */
+    min-width: 450px;
+    margin-top: 100px;
+    padding: 30px;
+}
+
+.label {
+    padding: 15px;
+    color: #e9e5e2;
+    font-size: 1rem;
+    font-weight: 700;
+    background-color: #33721f;
+    border-radius: 5px;
+    font-family: "Courier New", Courier, monospace;
+}
+
+.input {
+    background-color: rgb(11 91 32);
+    border: 3px solid #156e2b;
+    box-shadow: 0px 0px 2px 2px #063a08;
+}
+.submit {
+    font-size: 1.4rem;
+    background-color: #ffffff;
+    padding: 20px 40px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    text-shadow: 0px 0px 2px #8f9e8e;
+    color: #4cc79e;
+    box-shadow: 0 4px 0px 1px #4b0909, 0 0 7px 22px #a2bda0 inset;
 }
 
 svg {

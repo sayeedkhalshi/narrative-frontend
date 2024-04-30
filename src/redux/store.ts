@@ -3,10 +3,14 @@ import { setupListeners } from "@reduxjs/toolkit/query";
 import { TypedUseSelectorHook, useSelector } from "react-redux";
 import { api } from "./features/api.slice";
 import { userSlice } from "./features/user.slice";
+import { termsSlice } from "./features/terms.slice";
+import { drawerSlice } from "./features/drawer.slice";
 
 const rootReducer = combineReducers({
     [api.reducerPath]: api.reducer,
     [userSlice.reducerPath]: userSlice.reducer,
+    [termsSlice.reducerPath]: termsSlice.reducer,
+    [drawerSlice.reducerPath]: drawerSlice.reducer,
 });
 
 export const store = configureStore({

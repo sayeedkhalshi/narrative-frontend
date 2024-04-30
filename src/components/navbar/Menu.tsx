@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 import LogoImage from "./LogoImage";
@@ -44,7 +45,9 @@ const Menu = () => {
                             >
                                 Contact
                             </Link>
-                            <ConnectButton label="Login" />
+                            <div className="ff-monospace">
+                                <ConnectButton label="Login" />
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -20,7 +20,11 @@ const lineaSepolia = {
     iconBackground: "#fff",
     nativeCurrency: { name: "Linea Ether", symbol: "LineaETH", decimals: 18 },
     rpcUrls: {
-        default: { http: ["https://linea-sepolia.infura.io/v3/"] },
+        default: {
+            http: [
+                "https://linea-sepolia.infura.io/v3/24NvPKnk43M4PcAuOPParAN3AFB",
+            ],
+        },
     },
     blockExplorers: {
         default: { name: "LineaScan", url: "https://sepolia.lineascan.build" },
