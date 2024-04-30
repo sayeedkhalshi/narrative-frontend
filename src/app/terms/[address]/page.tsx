@@ -4,31 +4,25 @@ import { findTermType } from "@/types/Term.type";
 import Link from "next/link";
 import { term_v3 } from "@/abi/Term/v3";
 
-// Adjusted interface to match the return type
-export interface TermDetails {
-    derivedFrom: string;
-    details: string;
-    termType: number;
-    title: string;
-}
-
-// Adjusted parsing function to return the correct type
-export function parseTermDetails(data: any): TermDetails {
-    // If it's a single object, parse it directly
-    return parseItem(data);
-}
-
-export function parseItem(item: any): TermDetails {
-    // Assuming item is an object, we'll just return it as is
-    // If the structure is more complex, you might need to adjust this
-    return item;
-}
+// Adjusted interface to match the return typ
 
 export default function SingleTermPage({
     params,
 }: {
     params: { address: string };
 }) {
+    // Adjusted parsing function to return the correct type
+    function parseTermDetails(data: any): TermDetails {
+        // If it's a single object, parse it directly
+        return parseItem(data);
+    }
+
+    function parseItem(item: any): TermDetails {
+        // Assuming item is an object, we'll just return it as is
+        // If the structure is more complex, you might need to adjust this
+        return item;
+    }
+
     console.log("a", params.address);
     const {
         data: details,

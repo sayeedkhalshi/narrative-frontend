@@ -11,7 +11,6 @@ import { z } from "zod";
 import { useSelector } from "react-redux";
 import { selectUser } from "@/redux/features/user.slice";
 import { TermType } from "@/types/Term.type";
-import { TermDetails } from "@/app/terms/[address]/page";
 import Link from "next/link";
 import {
     type BaseError,

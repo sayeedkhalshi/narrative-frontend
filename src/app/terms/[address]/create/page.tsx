@@ -1,10 +1,20 @@
 "use client";
 import CreateTermForm from "@/components/Forms/CreateTerm.form";
 import { useReadContract } from "wagmi";
-import { TermDetails, parseTermDetails } from "../page";
 import { term_v3 } from "@/abi/Term/v3";
 
 const CreateTermPage = ({ params }: { params: { address: `0x${string}` } }) => {
+    // Adjusted parsing function to return the correct type
+    function parseTermDetails(data: any): TermDetails {
+        // If it's a single object, parse it directly
+        return parseItem(data);
+    }
+
+    function parseItem(item: any): TermDetails {
+        // Assuming item is an object, we'll just return it as is
+        // If the structure is more complex, you might need to adjust this
+        return item;
+    }
     const {
         data: details,
         error,
