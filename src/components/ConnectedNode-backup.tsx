@@ -7,15 +7,13 @@ import { useReadContract } from "wagmi";
 import { term_abi } from "@/abi/Term";
 
 type ConnectedNodeProps = {
-    address: `0x${string}`;
     centralNode: TermDetails;
-    nodesAround: `0x${string}`[];
+    nodesAround: TermDetails[];
 };
 
 const ConnectedNode: React.FC<ConnectedNodeProps> = ({
     centralNode,
     nodesAround,
-    address,
 }) => {
     const [animationEnded, setAnimatedEnded] = useState(false);
     const numberOfElements = testTermsList.length;
@@ -29,7 +27,7 @@ const ConnectedNode: React.FC<ConnectedNodeProps> = ({
     const centerY = containerHeight / 2;
 
     // Calculate positions for each element relative to the container's center
-    const positions = nodesAround.map((term, i) => {
+    const positions = testTermsList.map((term, i) => {
         // Calculate the angle for this node
         const nodeAngle = angle * i;
         // Determine if this node is on the left side
@@ -131,20 +129,18 @@ const ConnectedNode: React.FC<ConnectedNodeProps> = ({
                 }}
             >
                 <SingleNode
-                    name={centralNode.title}
+                    name="Control Structure"
                     isCenter={true}
                     style={{
                         position: "absolute",
                         left: `${centerPoint.x - 65}px`,
                         top: `${centerPoint.y - 65}px`,
                     }}
-                    address={address}
                 />
                 {positions.map((position, i) => (
                     <SingleNode
-                        key={i}
-                        name={""}
-                        address={position.term}
+                        key={position.term.id}
+                        name={position.term.name}
                         isCenter={false}
                         style={{
                             position: "absolute",

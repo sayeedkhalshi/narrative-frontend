@@ -17,8 +17,8 @@ import {
     useWaitForTransactionReceipt,
     useWriteContract,
 } from "wagmi";
-import { learneaContractAddress } from "@/lib/constant";
-import { learnea_v3 } from "@/abi/Learnea/v3";
+import { learnea_contract_address } from "@/lib/constant";
+import { learnea_abi } from "@/abi/Learnea";
 
 type CreateTermFormProps = {
     term: TermDetails;
@@ -48,8 +48,8 @@ const CreateTermForm: React.FC<CreateTermFormProps> = ({ term, address }) => {
             // If validation passes, submit the form
             const { title, details, termType, derivedFrom } = data;
             writeContract({
-                address: learneaContractAddress.v2,
-                abi: learnea_v3,
+                address: learnea_contract_address,
+                abi: learnea_abi,
                 functionName: "createTerm",
                 args: [title, details, Number(termType), derivedFrom],
             });

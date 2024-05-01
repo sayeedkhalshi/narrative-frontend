@@ -1,47 +1,4 @@
-export const learnea_v2 = [
-    {
-        inputs: [],
-        stateMutability: "nonpayable",
-        type: "constructor",
-    },
-    {
-        inputs: [],
-        name: "addPathToUserPathList",
-        outputs: [],
-        stateMutability: "nonpayable",
-        type: "function",
-    },
-    {
-        inputs: [
-            {
-                internalType: "address",
-                name: "_pathAddress",
-                type: "address",
-            },
-        ],
-        name: "addUserToPathList",
-        outputs: [],
-        stateMutability: "nonpayable",
-        type: "function",
-    },
-    {
-        inputs: [
-            {
-                internalType: "string",
-                name: "_title",
-                type: "string",
-            },
-            {
-                internalType: "string",
-                name: "_details",
-                type: "string",
-            },
-        ],
-        name: "createLayer",
-        outputs: [],
-        stateMutability: "nonpayable",
-        type: "function",
-    },
+export const learnea_v1 = [
     {
         inputs: [
             {
@@ -66,7 +23,13 @@ export const learnea_v2 = [
             },
         ],
         name: "createTerm",
-        outputs: [],
+        outputs: [
+            {
+                internalType: "address",
+                name: "",
+                type: "address",
+            },
+        ],
         stateMutability: "nonpayable",
         type: "function",
     },
@@ -95,29 +58,148 @@ export const learnea_v2 = [
     },
     {
         inputs: [],
-        name: "getAllLayers",
+        stateMutability: "nonpayable",
+        type: "constructor",
+    },
+    {
+        inputs: [
+            {
+                internalType: "address",
+                name: "_address",
+                type: "address",
+            },
+            {
+                internalType: "uint256",
+                name: "_lastIndex",
+                type: "uint256",
+            },
+        ],
+        name: "getLastCoTerm",
         outputs: [
             {
-                components: [
-                    {
-                        internalType: "uint256",
-                        name: "id",
-                        type: "uint256",
-                    },
-                    {
-                        internalType: "address",
-                        name: "creator",
-                        type: "address",
-                    },
-                    {
-                        internalType: "address",
-                        name: "layerAddress",
-                        type: "address",
-                    },
-                ],
-                internalType: "struct Learnea.CreatedLayer[]",
+                internalType: "address",
                 name: "",
-                type: "tuple[]",
+                type: "address",
+            },
+        ],
+        stateMutability: "view",
+        type: "function",
+    },
+    {
+        inputs: [
+            {
+                internalType: "address",
+                name: "_address",
+                type: "address",
+            },
+            {
+                internalType: "uint256",
+                name: "_lastIndex",
+                type: "uint256",
+            },
+        ],
+        name: "getLastMacroTerm",
+        outputs: [
+            {
+                internalType: "address",
+                name: "",
+                type: "address",
+            },
+        ],
+        stateMutability: "view",
+        type: "function",
+    },
+    {
+        inputs: [
+            {
+                internalType: "address",
+                name: "_address",
+                type: "address",
+            },
+            {
+                internalType: "uint256",
+                name: "_lastIndex",
+                type: "uint256",
+            },
+        ],
+        name: "getLastMicroTerm",
+        outputs: [
+            {
+                internalType: "address",
+                name: "",
+                type: "address",
+            },
+        ],
+        stateMutability: "view",
+        type: "function",
+    },
+    {
+        inputs: [
+            {
+                internalType: "address",
+                name: "_address",
+                type: "address",
+            },
+            {
+                internalType: "uint256",
+                name: "_lastIndex",
+                type: "uint256",
+            },
+        ],
+        name: "getLastPerspectivesTerms",
+        outputs: [
+            {
+                internalType: "address",
+                name: "",
+                type: "address",
+            },
+        ],
+        stateMutability: "view",
+        type: "function",
+    },
+    {
+        inputs: [
+            {
+                internalType: "address",
+                name: "_address",
+                type: "address",
+            },
+            {
+                internalType: "uint256",
+                name: "_lastIndex",
+                type: "uint256",
+            },
+        ],
+        name: "getLastPhilosophyTerm",
+        outputs: [
+            {
+                internalType: "address",
+                name: "",
+                type: "address",
+            },
+        ],
+        stateMutability: "view",
+        type: "function",
+    },
+    {
+        inputs: [
+            {
+                internalType: "address",
+                name: "_address",
+                type: "address",
+            },
+            {
+                internalType: "uint256",
+                name: "_lastIndex",
+                type: "uint256",
+            },
+        ],
+        name: "getLastScientificTerms",
+        outputs: [
+            {
+                internalType: "address",
+                name: "",
+                type: "address",
             },
         ],
         stateMutability: "view",
@@ -125,39 +207,12 @@ export const learnea_v2 = [
     },
     {
         inputs: [],
-        name: "getAllTerms",
+        name: "getStandaloneTerms",
         outputs: [
             {
-                components: [
-                    {
-                        internalType: "uint256",
-                        name: "id",
-                        type: "uint256",
-                    },
-                    {
-                        internalType: "address",
-                        name: "creator",
-                        type: "address",
-                    },
-                    {
-                        internalType: "address",
-                        name: "termAddress",
-                        type: "address",
-                    },
-                    {
-                        internalType: "uint256",
-                        name: "termType",
-                        type: "uint256",
-                    },
-                    {
-                        internalType: "address",
-                        name: "derivedFrom",
-                        type: "address",
-                    },
-                ],
-                internalType: "struct Learnea.CreatedTerm[]",
+                internalType: "address[]",
                 name: "",
-                type: "tuple[]",
+                type: "address[]",
             },
         ],
         stateMutability: "view",
@@ -166,45 +221,9 @@ export const learnea_v2 = [
     {
         inputs: [
             {
-                internalType: "uint256",
-                name: "_layerId",
-                type: "uint256",
-            },
-        ],
-        name: "getLayer",
-        outputs: [
-            {
-                components: [
-                    {
-                        internalType: "uint256",
-                        name: "id",
-                        type: "uint256",
-                    },
-                    {
-                        internalType: "address",
-                        name: "creator",
-                        type: "address",
-                    },
-                    {
-                        internalType: "address",
-                        name: "layerAddress",
-                        type: "address",
-                    },
-                ],
-                internalType: "struct Learnea.CreatedLayer",
-                name: "",
-                type: "tuple",
-            },
-        ],
-        stateMutability: "view",
-        type: "function",
-    },
-    {
-        inputs: [
-            {
-                internalType: "uint256",
-                name: "_termId",
-                type: "uint256",
+                internalType: "address",
+                name: "_address",
+                type: "address",
             },
         ],
         name: "getTerm",
@@ -235,6 +254,36 @@ export const learnea_v2 = [
                         internalType: "address",
                         name: "derivedFrom",
                         type: "address",
+                    },
+                    {
+                        internalType: "address[]",
+                        name: "perspectives_terms",
+                        type: "address[]",
+                    },
+                    {
+                        internalType: "address[]",
+                        name: "co_terms",
+                        type: "address[]",
+                    },
+                    {
+                        internalType: "address[]",
+                        name: "micro_terms",
+                        type: "address[]",
+                    },
+                    {
+                        internalType: "address[]",
+                        name: "macro_terms",
+                        type: "address[]",
+                    },
+                    {
+                        internalType: "address[]",
+                        name: "philosophy_terms",
+                        type: "address[]",
+                    },
+                    {
+                        internalType: "address[]",
+                        name: "scientific_terms",
+                        type: "address[]",
                     },
                 ],
                 internalType: "struct Learnea.CreatedTerm",
@@ -307,9 +356,9 @@ export const learnea_v2 = [
     {
         inputs: [
             {
-                internalType: "uint256",
+                internalType: "address",
                 name: "",
-                type: "uint256",
+                type: "address",
             },
         ],
         name: "layers",
@@ -347,6 +396,25 @@ export const learnea_v2 = [
         type: "function",
     },
     {
+        inputs: [
+            {
+                internalType: "uint256",
+                name: "",
+                type: "uint256",
+            },
+        ],
+        name: "standaloneTerms",
+        outputs: [
+            {
+                internalType: "address",
+                name: "",
+                type: "address",
+            },
+        ],
+        stateMutability: "view",
+        type: "function",
+    },
+    {
         inputs: [],
         name: "termCount",
         outputs: [
@@ -362,9 +430,9 @@ export const learnea_v2 = [
     {
         inputs: [
             {
-                internalType: "uint256",
+                internalType: "address",
                 name: "",
-                type: "uint256",
+                type: "address",
             },
         ],
         name: "terms",
@@ -406,99 +474,6 @@ export const learnea_v2 = [
                 internalType: "uint256",
                 name: "",
                 type: "uint256",
-            },
-        ],
-        stateMutability: "view",
-        type: "function",
-    },
-    {
-        inputs: [
-            {
-                internalType: "address",
-                name: "",
-                type: "address",
-            },
-        ],
-        name: "userCreatedPathList",
-        outputs: [
-            {
-                internalType: "uint256",
-                name: "id",
-                type: "uint256",
-            },
-            {
-                internalType: "address",
-                name: "creator",
-                type: "address",
-            },
-            {
-                internalType: "string",
-                name: "title",
-                type: "string",
-            },
-            {
-                internalType: "string",
-                name: "details",
-                type: "string",
-            },
-            {
-                internalType: "address",
-                name: "startingTerm",
-                type: "address",
-            },
-            {
-                internalType: "address",
-                name: "endTerm",
-                type: "address",
-            },
-            {
-                internalType: "address",
-                name: "goalTerm",
-                type: "address",
-            },
-            {
-                internalType: "address",
-                name: "pathAdress",
-                type: "address",
-            },
-        ],
-        stateMutability: "view",
-        type: "function",
-    },
-    {
-        inputs: [
-            {
-                internalType: "address",
-                name: "",
-                type: "address",
-            },
-        ],
-        name: "userPathList",
-        outputs: [
-            {
-                internalType: "string",
-                name: "_title",
-                type: "string",
-            },
-            {
-                internalType: "string",
-                name: "_details",
-                type: "string",
-            },
-            {
-                internalType: "address",
-                name: "_startingTerm",
-                type: "address",
-            },
-            {
-                internalType: "address",
-                name: "_endTerm",
-                type: "address",
-            },
-            {
-                internalType: "address",
-                name: "_goalTerm",
-                type: "address",
             },
         ],
         stateMutability: "view",

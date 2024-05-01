@@ -1,7 +1,7 @@
 "use client";
 import CreateTermForm from "@/components/Forms/CreateTerm.form";
 import { useReadContract } from "wagmi";
-import { term_v3 } from "@/abi/Term/v3";
+import { term_abi } from "@/abi/Term";
 
 const CreateTermPage = ({ params }: { params: { address: `0x${string}` } }) => {
     // Adjusted parsing function to return the correct type
@@ -20,8 +20,8 @@ const CreateTermPage = ({ params }: { params: { address: `0x${string}` } }) => {
         error,
         isPending,
     } = useReadContract({
-        abi: term_v3,
-        address: "0xE792ded485888608D7Ab7a75f4D821D3D97Db6eA",
+        abi: term_abi,
+        address: params.address, //control structure
         functionName: "getDetails",
     });
 

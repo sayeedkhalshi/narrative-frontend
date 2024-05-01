@@ -1,14 +1,16 @@
+import { term_abi } from "@/abi/Term";
 import { toggleTermDrawer } from "@/redux/features/drawer.slice";
 import Link from "next/link";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { useReadContract } from "wagmi";
 
 interface SingleNodeProps {
     name: string;
     id?: string;
     style?: React.CSSProperties;
     isCenter: boolean;
-    address?: string;
+    address?: `0x${string}`;
 }
 
 const SingleNode: React.FC<SingleNodeProps> = ({
@@ -16,10 +18,36 @@ const SingleNode: React.FC<SingleNodeProps> = ({
     id,
     style,
     isCenter,
-    address = "0xE1C45B6e0B4b0629c440052cE679126b956C1adD",
+    address,
 }) => {
     const [visibility, setVisibility] = useState(false);
     const dispatch = useDispatch();
+
+    const {
+        data: nodeDetails,
+        error,
+        isPending,
+    } = useReadContract({
+        abi: term_abi,
+        address: address, //control structure
+        functionName: "getDetails",
+    });
+
+    if (isPending)
+        return (
+            <div className="flex justify-center items-center h-screen">
+                Loading...
+            </div>
+        );
+    if (error)
+        return (
+            <div className="flex justify-center items-center h-screen">
+                Error! {error.message}
+            </div>
+        );
+
+    console.log("node details", nodeDetails);
+    const node = nodeDetails as TermDetails;
 
     return (
         <>
@@ -35,7 +63,7 @@ const SingleNode: React.FC<SingleNodeProps> = ({
                             : "sub-terms"
                     }`}
                 >
-                    {name}
+                    {node.title}
                     <Link href={`/terms/${address}/create`} passHref>
                         <span
                             className={`${

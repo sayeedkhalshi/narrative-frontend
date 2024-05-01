@@ -1,227 +1,118 @@
-export const v1 = [
+export const term_v1 = [
     {
-        inputs: [],
+        inputs: [
+            {
+                internalType: "string",
+                name: "_title",
+                type: "string",
+            },
+            {
+                internalType: "string",
+                name: "_details",
+                type: "string",
+            },
+            {
+                internalType: "uint256",
+                name: "_termType",
+                type: "uint256",
+            },
+            {
+                internalType: "address",
+                name: "_derivedFrom",
+                type: "address",
+            },
+            {
+                internalType: "address",
+                name: "_learneaContract",
+                type: "address",
+            },
+        ],
         stateMutability: "nonpayable",
         type: "constructor",
     },
     {
-        inputs: [
-            {
-                internalType: "string",
-                name: "_title",
-                type: "string",
-            },
-            {
-                internalType: "string",
-                name: "_details",
-                type: "string",
-            },
-        ],
-        name: "createLayer",
-        outputs: [],
-        stateMutability: "nonpayable",
-        type: "function",
-    },
-    {
-        inputs: [
-            {
-                internalType: "string",
-                name: "_title",
-                type: "string",
-            },
-            {
-                internalType: "string",
-                name: "_details",
-                type: "string",
-            },
-        ],
-        name: "createTerm",
-        outputs: [],
-        stateMutability: "nonpayable",
-        type: "function",
-    },
-    {
-        inputs: [
-            {
-                internalType: "string",
-                name: "_name",
-                type: "string",
-            },
-            {
-                internalType: "string",
-                name: "_title",
-                type: "string",
-            },
-            {
-                internalType: "string",
-                name: "_details",
-                type: "string",
-            },
-        ],
-        name: "createUser",
-        outputs: [],
-        stateMutability: "nonpayable",
-        type: "function",
-    },
-    {
         inputs: [],
-        name: "getAllLayers",
+        name: "LearneaContract",
         outputs: [
-            {
-                components: [
-                    {
-                        internalType: "uint256",
-                        name: "id",
-                        type: "uint256",
-                    },
-                    {
-                        internalType: "address",
-                        name: "creator",
-                        type: "address",
-                    },
-                    {
-                        internalType: "address",
-                        name: "layerAddress",
-                        type: "address",
-                    },
-                ],
-                internalType: "struct Learnea.CreatedLayer[]",
-                name: "",
-                type: "tuple[]",
-            },
-        ],
-        stateMutability: "view",
-        type: "function",
-    },
-    {
-        inputs: [],
-        name: "getAllTerms",
-        outputs: [
-            {
-                components: [
-                    {
-                        internalType: "uint256",
-                        name: "id",
-                        type: "uint256",
-                    },
-                    {
-                        internalType: "address",
-                        name: "creator",
-                        type: "address",
-                    },
-                    {
-                        internalType: "address",
-                        name: "termAddress",
-                        type: "address",
-                    },
-                ],
-                internalType: "struct Learnea.CreatedTerm[]",
-                name: "",
-                type: "tuple[]",
-            },
-        ],
-        stateMutability: "view",
-        type: "function",
-    },
-    {
-        inputs: [
-            {
-                internalType: "uint256",
-                name: "_layerId",
-                type: "uint256",
-            },
-        ],
-        name: "getLayer",
-        outputs: [
-            {
-                components: [
-                    {
-                        internalType: "uint256",
-                        name: "id",
-                        type: "uint256",
-                    },
-                    {
-                        internalType: "address",
-                        name: "creator",
-                        type: "address",
-                    },
-                    {
-                        internalType: "address",
-                        name: "layerAddress",
-                        type: "address",
-                    },
-                ],
-                internalType: "struct Learnea.CreatedLayer",
-                name: "",
-                type: "tuple",
-            },
-        ],
-        stateMutability: "view",
-        type: "function",
-    },
-    {
-        inputs: [
-            {
-                internalType: "uint256",
-                name: "_termId",
-                type: "uint256",
-            },
-        ],
-        name: "getTerm",
-        outputs: [
-            {
-                components: [
-                    {
-                        internalType: "uint256",
-                        name: "id",
-                        type: "uint256",
-                    },
-                    {
-                        internalType: "address",
-                        name: "creator",
-                        type: "address",
-                    },
-                    {
-                        internalType: "address",
-                        name: "termAddress",
-                        type: "address",
-                    },
-                ],
-                internalType: "struct Learnea.CreatedTerm",
-                name: "",
-                type: "tuple",
-            },
-        ],
-        stateMutability: "view",
-        type: "function",
-    },
-    {
-        inputs: [
             {
                 internalType: "address",
-                name: "_userAddress",
+                name: "",
                 type: "address",
             },
         ],
-        name: "getUser",
+        stateMutability: "view",
+        type: "function",
+    },
+    {
+        inputs: [
+            {
+                internalType: "string",
+                name: "_curve",
+                type: "string",
+            },
+        ],
+        name: "addLearningCurves",
+        outputs: [
+            {
+                internalType: "string[]",
+                name: "",
+                type: "string[]",
+            },
+        ],
+        stateMutability: "nonpayable",
+        type: "function",
+    },
+    {
+        inputs: [],
+        name: "createdAt",
+        outputs: [
+            {
+                internalType: "uint256",
+                name: "",
+                type: "uint256",
+            },
+        ],
+        stateMutability: "view",
+        type: "function",
+    },
+    {
+        inputs: [],
+        name: "derivedFrom",
+        outputs: [
+            {
+                internalType: "address",
+                name: "",
+                type: "address",
+            },
+        ],
+        stateMutability: "view",
+        type: "function",
+    },
+    {
+        inputs: [
+            {
+                internalType: "uint256",
+                name: "",
+                type: "uint256",
+            },
+        ],
+        name: "details",
+        outputs: [
+            {
+                internalType: "string",
+                name: "",
+                type: "string",
+            },
+        ],
+        stateMutability: "view",
+        type: "function",
+    },
+    {
+        inputs: [],
+        name: "getDetails",
         outputs: [
             {
                 components: [
-                    {
-                        internalType: "uint256",
-                        name: "id",
-                        type: "uint256",
-                    },
-                    {
-                        internalType: "address",
-                        name: "wallet",
-                        type: "address",
-                    },
-                    {
-                        internalType: "string",
-                        name: "name",
-                        type: "string",
-                    },
                     {
                         internalType: "string",
                         name: "title",
@@ -232,8 +123,18 @@ export const v1 = [
                         name: "details",
                         type: "string",
                     },
+                    {
+                        internalType: "uint256",
+                        name: "termType",
+                        type: "uint256",
+                    },
+                    {
+                        internalType: "address",
+                        name: "derivedFrom",
+                        type: "address",
+                    },
                 ],
-                internalType: "struct Learnea.User",
+                internalType: "struct Term.Details",
                 name: "",
                 type: "tuple",
             },
@@ -243,7 +144,45 @@ export const v1 = [
     },
     {
         inputs: [],
-        name: "layerCount",
+        name: "getDetailsHistory",
+        outputs: [
+            {
+                components: [
+                    {
+                        internalType: "string[]",
+                        name: "title",
+                        type: "string[]",
+                    },
+                    {
+                        internalType: "string[]",
+                        name: "details",
+                        type: "string[]",
+                    },
+                ],
+                internalType: "struct Term.DetailsHistory",
+                name: "",
+                type: "tuple",
+            },
+        ],
+        stateMutability: "view",
+        type: "function",
+    },
+    {
+        inputs: [],
+        name: "getLearningCurves",
+        outputs: [
+            {
+                internalType: "string[]",
+                name: "",
+                type: "string[]",
+            },
+        ],
+        stateMutability: "view",
+        type: "function",
+    },
+    {
+        inputs: [],
+        name: "lastUpdatedAt",
         outputs: [
             {
                 internalType: "uint256",
@@ -262,21 +201,30 @@ export const v1 = [
                 type: "uint256",
             },
         ],
-        name: "layers",
+        name: "learningCurves",
         outputs: [
             {
+                internalType: "string",
+                name: "",
+                type: "string",
+            },
+        ],
+        stateMutability: "view",
+        type: "function",
+    },
+    {
+        inputs: [
+            {
                 internalType: "uint256",
-                name: "id",
+                name: "",
                 type: "uint256",
             },
+        ],
+        name: "projects",
+        outputs: [
             {
                 internalType: "address",
-                name: "creator",
-                type: "address",
-            },
-            {
-                internalType: "address",
-                name: "layerAddress",
+                name: "",
                 type: "address",
             },
         ],
@@ -285,7 +233,7 @@ export const v1 = [
     },
     {
         inputs: [],
-        name: "termCount",
+        name: "termType",
         outputs: [
             {
                 internalType: "uint256",
@@ -304,35 +252,12 @@ export const v1 = [
                 type: "uint256",
             },
         ],
-        name: "terms",
+        name: "title",
         outputs: [
             {
-                internalType: "uint256",
-                name: "id",
-                type: "uint256",
-            },
-            {
-                internalType: "address",
-                name: "creator",
-                type: "address",
-            },
-            {
-                internalType: "address",
-                name: "termAddress",
-                type: "address",
-            },
-        ],
-        stateMutability: "view",
-        type: "function",
-    },
-    {
-        inputs: [],
-        name: "userCount",
-        outputs: [
-            {
-                internalType: "uint256",
+                internalType: "string",
                 name: "",
-                type: "uint256",
+                type: "string",
             },
         ],
         stateMutability: "view",
@@ -341,40 +266,39 @@ export const v1 = [
     {
         inputs: [
             {
-                internalType: "address",
-                name: "",
-                type: "address",
+                internalType: "string",
+                name: "_details",
+                type: "string",
             },
         ],
-        name: "users",
+        name: "updateDetails",
         outputs: [
             {
-                internalType: "uint256",
-                name: "id",
-                type: "uint256",
-            },
-            {
-                internalType: "address",
-                name: "wallet",
-                type: "address",
-            },
-            {
                 internalType: "string",
-                name: "name",
-                type: "string",
-            },
-            {
-                internalType: "string",
-                name: "title",
-                type: "string",
-            },
-            {
-                internalType: "string",
-                name: "details",
+                name: "",
                 type: "string",
             },
         ],
-        stateMutability: "view",
+        stateMutability: "nonpayable",
+        type: "function",
+    },
+    {
+        inputs: [
+            {
+                internalType: "string",
+                name: "_title",
+                type: "string",
+            },
+        ],
+        name: "updateTitle",
+        outputs: [
+            {
+                internalType: "string",
+                name: "",
+                type: "string",
+            },
+        ],
+        stateMutability: "nonpayable",
         type: "function",
     },
 ];

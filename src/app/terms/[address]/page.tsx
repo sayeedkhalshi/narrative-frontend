@@ -2,14 +2,14 @@
 import { useReadContract } from "wagmi";
 import { findTermType } from "@/types/Term.type";
 import Link from "next/link";
-import { term_v3 } from "@/abi/Term/v3";
+import { term_abi } from "@/abi/Term";
 
 // Adjusted interface to match the return typ
 
 export default function SingleTermPage({
     params,
 }: {
-    params: { address: string };
+    params: { address: `0x${string}` };
 }) {
     // Adjusted parsing function to return the correct type
     function parseTermDetails(data: any): TermDetails {
@@ -29,8 +29,8 @@ export default function SingleTermPage({
         error,
         isPending,
     } = useReadContract({
-        abi: term_v3,
-        address: "0xE792ded485888608D7Ab7a75f4D821D3D97Db6eA",
+        abi: term_abi,
+        address: params.address, //control structure
         functionName: "getDetails",
     });
 
