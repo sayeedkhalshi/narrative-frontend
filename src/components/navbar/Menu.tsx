@@ -14,9 +14,9 @@ const Menu = () => {
                     <LogoText />
                     <div className=" lg:block lg:ml-6">
                         <div className="flex space-x-4">
-                            <Link href="/" className="nav-link">
+                            {/* <Link href="/" className="nav-link">
                                 Home
-                            </Link>
+                            </Link> */}
                             <Link
                                 href="https://github.com/sayeedkhalshi/learnea-frontend"
                                 className="nav-link"
@@ -45,6 +45,17 @@ const Menu = () => {
                             >
                                 Contact
                             </Link>
+                            <Image
+                                src={`/images/frog-green.png`}
+                                width={50}
+                                height={20}
+                                alt="efrog"
+                                onClick={() => {
+                                    window.location.href =
+                                        "https://element.market/collections/ethereum-frogs";
+                                }}
+                            />
+
                             <div className="ff-monospace">
                                 <ConnectButton label="Login" />
                             </div>

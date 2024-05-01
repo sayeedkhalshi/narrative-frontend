@@ -117,7 +117,9 @@ const CreateTermForm: React.FC<CreateTermFormProps> = ({ term, address }) => {
                 <input
                     type="text"
                     id="title"
-                    {...register("title")}
+                    {...register("title", {
+                        value: "Term",
+                    })}
                     className="w-full px-3 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring focus:border-indigo-500 input"
                 />
                 {errors.title && (
