@@ -3,6 +3,7 @@ import { useReadContract } from "wagmi";
 import { findTermType } from "@/types/Term.type";
 import Link from "next/link";
 import { term_abi } from "@/abi/Term";
+import { Curves } from "@/components/Features/Terms/Curves/Curves";
 
 // Adjusted interface to match the return typ
 
@@ -55,21 +56,45 @@ export default function SingleTermPage({
 
     console.log("t", termDetails);
     return (
-        <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h1 className="text-4xl text-green-900 font-bold text-center my-8">
-                Term Details
-            </h1>
+        <div className="max-w-2xl mx-auto mt-16 px-4 sm:px-6 lg:px-8">
             {termDetails && (
-                <div className="bg-white shadow overflow-hidden sm:rounded-lg p-6">
+                <div className=" shadow overflow-hidden sm:rounded-lg">
                     <div>
-                        <p className="text-xl font-semibold text-black">
-                            {termDetails.title}
-                        </p>
-                        <p className="mt-2 text-gray-700">
+                        <h1
+                            className="text-2xl text-green-900 font-bold text-center"
+                            style={{
+                                background: "rgb(251 255 251)",
+                                boxShadow: "rgb(9 7 7) 3px 3px 0px 3px",
+                                textTransform: "uppercase",
+                                padding: "25px 10px",
+                                zIndex: 99,
+                                color: "#28472d",
+                            }}
+                        >
+                            {termDetails && termDetails.title}
+                        </h1>
+                        <p
+                            className="mt-2 text-gray-700"
+                            style={{
+                                //backgroundColor: "#ffffff",
+                                padding: "5rem",
+                                //textShadow:
+                                //  "6px 9px 16px #e3d5d5, -40px -15px 16px #e3d5d5",
+                                //backgroundImage:
+                                //  "url('/images/texture/gray-texture.jpeg')",
+                                color: "rgb(48 64 45)",
+                                //backgroundBlendMode: "exclusion",
+                                fontSize: "1.1rem",
+                                textAlign: "left",
+                                backgroundSize: "contain",
+                                borderRadius: "10px",
+                            }}
+                        >
                             {termDetails.details}
                         </p>
-                        <p className="mt-2 text-gray-700 ">
-                            Derived From:{" "}
+                        <Curves term={termDetails} address={params.address} />
+                        <p className="mt-2 text-gray-700 p-5">
+                            <em>Derived From: </em> <br />
                             {termType === "Standalone" ? (
                                 "None"
                             ) : (
@@ -77,13 +102,16 @@ export default function SingleTermPage({
                                     className="underline"
                                     href={`/terms/${termDetails.derivedFrom}`}
                                 >
-                                    {termDetails.derivedFrom}
+                                    <span className="text-xl">
+                                        {termDetails.derivedFrom}
+                                    </span>
                                 </Link>
                             )}
                         </p>
-                        <p className="mt-2 text-gray-700">
-                            Term Type:{termType}
-                            {}
+                        <p className="mt-2 text-gray-700 p-5 ">
+                            <em>Term Type: </em>
+                            <br />
+                            <span className="text-xl">{termType}</span>
                         </p>
                     </div>
                 </div>
