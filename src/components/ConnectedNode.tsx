@@ -142,6 +142,7 @@ const ConnectedNode: React.FC<ConnectedNodeProps> = ({
                 />
                 {positions.map((position, i) => (
                     <SingleNode
+                        centralAddress={address}
                         key={i}
                         name={""}
                         address={position.term}

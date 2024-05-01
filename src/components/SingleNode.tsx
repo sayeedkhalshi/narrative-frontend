@@ -6,6 +6,7 @@ import { useDispatch } from "react-redux";
 import { useReadContract } from "wagmi";
 
 interface SingleNodeProps {
+    centralAddress?: `0x${string}`;
     name: string;
     id?: string;
     style?: React.CSSProperties;
@@ -19,32 +20,59 @@ const SingleNode: React.FC<SingleNodeProps> = ({
     style,
     isCenter,
     address,
+    centralAddress,
 }) => {
     const [visibility, setVisibility] = useState(false);
     const dispatch = useDispatch();
 
     const {
         data: nodeDetails,
-        error,
         isPending,
+        isLoadingError,
+        isError,
     } = useReadContract({
         abi: term_abi,
         address: address, //control structure
         functionName: "getDetails",
     });
 
-    if (isPending)
+    if (typeof address == "undefined" || !address) {
         return (
-            <div className="flex justify-center items-center h-screen">
+            <Link
+                id={id}
+                style={style}
+                className="sub-terms text-center"
+                href={`/terms/${centralAddress}/create`}
+                passHref
+            >
+                Create Term
+            </Link>
+        );
+    }
+
+    if (isPending) {
+        return (
+            <div id={id} style={style} className="sub-terms">
                 Loading...
             </div>
         );
-    if (error)
+    }
+
+    if (isLoadingError) {
         return (
-            <div className="flex justify-center items-center h-screen">
-                Error! {error.message}
+            <div id={id} style={style} className="sub-terms">
+                Loading Err!
             </div>
         );
+    }
+
+    if (isError) {
+        return (
+            <div id={id} style={style} className="sub-terms">
+                Error!
+            </div>
+        );
+    }
 
     console.log("node details", nodeDetails);
     const node = nodeDetails as TermDetails;
@@ -72,7 +100,7 @@ const SingleNode: React.FC<SingleNodeProps> = ({
                             style={{
                                 backgroundColor: "black",
                                 fontSize: "0.6rem",
-                                color: "e2e7e7",
+                                color: "#e2e7e7",
                                 fontWeight: "700",
                                 border: "2px solid brown",
                                 borderRadius: "5px",
