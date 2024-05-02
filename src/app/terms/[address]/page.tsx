@@ -29,25 +29,53 @@ export default function SingleTermPage({
         data: details,
         error,
         isPending,
+        isLoading,
+        isError,
+        isLoadingError,
     } = useReadContract({
         abi: term_abi,
         address: params.address, //control structure
         functionName: "getDetails",
     });
 
-    if (isPending)
-        return (
-            <div className="flex justify-center items-center h-screen">
-                Loading...
-            </div>
-        );
-    if (error)
+    if (error) {
         return (
             <div className="flex justify-center items-center h-screen">
                 Error! {error.message}
             </div>
         );
+    }
+    if (typeof params.address == "undefined" || !params.address) {
+        return (
+            <div className="flex justify-center items-center h-screen">
+                No Address Provided
+            </div>
+        );
+    }
 
+    if (isPending) {
+        return (
+            <div className="flex justify-center items-center h-screen">
+                Loading...
+            </div>
+        );
+    }
+
+    if (isLoadingError) {
+        return (
+            <div className="flex justify-center items-center h-screen">
+                Loading Err!
+            </div>
+        );
+    }
+
+    if (isError) {
+        return (
+            <div className="flex justify-center items-center h-screen">
+                Error!
+            </div>
+        );
+    }
     const termDetails: TermDetails | null = details
         ? parseTermDetails(details)
         : null;

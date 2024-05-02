@@ -5,12 +5,14 @@ import { api } from "./features/api.slice";
 import { userSlice } from "./features/user.slice";
 import { termsSlice } from "./features/terms.slice";
 import { drawerSlice } from "./features/drawer.slice";
+import { centralTermsSlice } from "./features/centralTerms.slice";
 
 const rootReducer = combineReducers({
     [api.reducerPath]: api.reducer,
     [userSlice.reducerPath]: userSlice.reducer,
     [termsSlice.reducerPath]: termsSlice.reducer,
     [drawerSlice.reducerPath]: drawerSlice.reducer,
+    [centralTermsSlice.reducerPath]: centralTermsSlice.reducer,
 });
 
 export const store = configureStore({

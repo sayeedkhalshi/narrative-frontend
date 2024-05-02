@@ -2,9 +2,16 @@
 import { learnea_abi } from "@/abi/Learnea";
 import TermsOnMap from "@/components/TermsOnMap";
 import { learnea_contract_address } from "@/lib/constant";
+import {
+    selectcentralTerms,
+    setCentralTerms,
+} from "@/redux/features/centralTerms.slice";
+import { useDispatch, useSelector } from "react-redux";
 import { useReadContract } from "wagmi";
 
 export default function Home() {
+    const dispatch = useDispatch();
+
     const {
         data: standaloneTerms,
         error,
@@ -29,13 +36,14 @@ export default function Home() {
         );
 
     const terms = standaloneTerms as `0x${string}`[];
-    console.log("t", terms);
+
+    dispatch(setCentralTerms(terms));
     return (
         <main className="flex min-h-screen max-h-screen flex-col items-center justify-between p-24">
             <div className="z-10 w-full font-mono">
-                {terms.map((term, i) => (
-                    <TermsOnMap key={i} address={term} />
-                ))}
+                {terms.map((term, index) => {
+                    return <TermsOnMap key={index} addressIndex={index} />;
+                })}
             </div>
         </main>
     );

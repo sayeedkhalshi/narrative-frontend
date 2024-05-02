@@ -3,19 +3,19 @@
 import React, { useEffect, useRef, useState } from "react";
 import SingleNode from "./SingleNode";
 import { testTermsList } from "@/utils/testTermsList";
-import { useReadContract } from "wagmi";
-import { term_abi } from "@/abi/Term";
 
 type ConnectedNodeProps = {
     address: `0x${string}`;
     centralNode: TermDetails;
     nodesAround: `0x${string}`[];
+    addressIndex: number;
 };
 
 const ConnectedNode: React.FC<ConnectedNodeProps> = ({
     centralNode,
     nodesAround,
     address,
+    addressIndex,
 }) => {
     const [animationEnded, setAnimatedEnded] = useState(false);
     const numberOfElements = testTermsList.length;
@@ -111,6 +111,18 @@ const ConnectedNode: React.FC<ConnectedNodeProps> = ({
         };
     }, []);
 
+    if (typeof address == "undefined" || !address) {
+        return <div>No Address...</div>;
+    }
+
+    if (typeof centralNode == "undefined" || !centralNode) {
+        return <div>No central node...</div>;
+    }
+
+    if (typeof nodesAround == "undefined" || !nodesAround) {
+        return <div>No nodes around...</div>;
+    }
+
     return (
         <div
             style={{
@@ -139,9 +151,11 @@ const ConnectedNode: React.FC<ConnectedNodeProps> = ({
                         top: `${centerPoint.y - 65}px`,
                     }}
                     address={address}
+                    addressIndex={addressIndex}
                 />
                 {positions.map((position, i) => (
                     <SingleNode
+                        addressIndex={addressIndex}
                         centralAddress={address}
                         key={i}
                         name={""}

@@ -1,20 +1,28 @@
 "use client";
 
-import { useReadContract, useReadContracts } from "wagmi";
+import { useReadContracts } from "wagmi";
 import ConnectedNode from "./ConnectedNode";
 import { learnea_abi } from "@/abi/Learnea";
 import { learnea_contract_address } from "@/lib/constant";
 import { term_abi } from "@/abi/Term";
+import { selectSingleCentralAddress } from "@/redux/features/centralTerms.slice";
+import { useSelector } from "react-redux";
 
 type TermsOnMapProps = {
-    address: `0x${string}`;
+    addressIndex: number;
 };
 
-const TermsOnMap: React.FC<TermsOnMapProps> = ({ address }) => {
+const TermsOnMap: React.FC<TermsOnMapProps> = ({ addressIndex }) => {
+    const address = useSelector((state: any) =>
+        selectSingleCentralAddress(state, addressIndex)
+    );
+
     const {
         data: nodeDetails,
         error,
         isPending,
+        isError,
+        isLoadingError,
     } = useReadContracts({
         contracts: [
             {
@@ -73,18 +81,44 @@ const TermsOnMap: React.FC<TermsOnMapProps> = ({ address }) => {
         ],
     });
 
-    if (isPending)
-        return (
-            <div className="flex justify-center items-center h-screen">
-                Loading...
-            </div>
-        );
-    if (error)
+    if (error) {
         return (
             <div className="flex justify-center items-center h-screen">
                 Error! {error.message}
             </div>
         );
+    }
+    if (typeof address == "undefined" || !address) {
+        return (
+            <div className="flex justify-center items-center h-screen">
+                No Address Provided
+            </div>
+        );
+    }
+
+    if (isPending) {
+        return (
+            <div className="flex justify-center items-center h-screen">
+                Loading...
+            </div>
+        );
+    }
+
+    if (isLoadingError) {
+        return (
+            <div className="flex justify-center items-center h-screen">
+                Loading Err!
+            </div>
+        );
+    }
+
+    if (isError) {
+        return (
+            <div className="flex justify-center items-center h-screen">
+                Error!
+            </div>
+        );
+    }
 
     const allNode = nodeDetails;
     const perspectiveNodes = allNode[1].result as `0x${string}`;
@@ -113,6 +147,7 @@ const TermsOnMap: React.FC<TermsOnMapProps> = ({ address }) => {
                 address={address}
                 centralNode={allNode[0].result as TermDetails}
                 nodesAround={nodesAround}
+                addressIndex={addressIndex}
             />
 
             {/* <ConnectedNode />

@@ -75,7 +75,8 @@ const CreateTermForm: React.FC<CreateTermFormProps> = ({ term, address }) => {
     if (!user) {
         return <div>Loading...</div>;
     }
-
+    const paragraphs = watch("details");
+    console.log("paragraphs", paragraphs);
     return (
         <form
             className="w-full max-w-sm mx-auto form-wrapper rounded-xl"

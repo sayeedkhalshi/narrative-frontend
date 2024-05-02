@@ -4,6 +4,8 @@ import Link from "next/link";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useReadContract } from "wagmi";
+import TermsOnMap from "./TermsOnMap";
+import { replaceCentralAddressByIndex } from "@/redux/features/centralTerms.slice";
 
 interface SingleNodeProps {
     centralAddress?: `0x${string}`;
@@ -12,6 +14,7 @@ interface SingleNodeProps {
     style?: React.CSSProperties;
     isCenter: boolean;
     address?: `0x${string}`;
+    addressIndex: number;
 }
 
 const SingleNode: React.FC<SingleNodeProps> = ({
@@ -21,10 +24,10 @@ const SingleNode: React.FC<SingleNodeProps> = ({
     isCenter,
     address,
     centralAddress,
+    addressIndex,
 }) => {
     const [visibility, setVisibility] = useState(false);
     const dispatch = useDispatch();
-
     const {
         data: nodeDetails,
         isPending,
@@ -78,49 +81,56 @@ const SingleNode: React.FC<SingleNodeProps> = ({
     const node = nodeDetails as TermDetails;
 
     return (
-        <>
-            <Link href={`/terms/${address}`} passHref>
-                <button
-                    onMouseEnter={() => setVisibility(true)}
-                    onMouseLeave={() => setVisibility(false)}
-                    id={id}
-                    style={style}
-                    className={`${
-                        isCenter
-                            ? "shadow-btn mx-auto filter-shadow"
-                            : "sub-terms"
-                    }`}
-                >
-                    {node.title}
-                    <Link href={`/terms/${address}/create`} passHref>
-                        <span
-                            className={`${
-                                visibility ? "visible" : "hidden"
-                            } absolute`}
-                            style={{
-                                backgroundColor: "black",
-                                fontSize: "0.6rem",
-                                color: "#e2e7e7",
-                                fontWeight: "700",
-                                border: "2px solid brown",
-                                borderRadius: "5px",
-                                padding: "5px",
-                                boxShadow: "0px 0px 5px 3px brown inset",
-                            }}
-                            //open create terms drawer
-                            onClick={(e) => {
-                                // e.preventDefault();
-                                // dispatch(
-                                //     toggleTermDrawer({ type: 0, isOpen: true })
-                                // );
-                            }}
-                        >
-                            Create Term
-                        </span>
-                    </Link>
-                </button>
-            </Link>
-        </>
+        <Link href={`/terms/${address}`} passHref>
+            <button
+                onMouseEnter={() => setVisibility(true)}
+                onMouseLeave={() => setVisibility(false)}
+                id={id}
+                style={style}
+                className={`${
+                    isCenter ? "shadow-btn mx-auto filter-shadow" : "sub-terms"
+                }`}
+                onClick={(e) => {
+                    if (!isCenter) {
+                        e.preventDefault();
+                        dispatch(
+                            replaceCentralAddressByIndex({
+                                addressIndex,
+                                address,
+                            })
+                        );
+                    }
+                }}
+            >
+                {node.title}
+                <Link href={`/terms/${address}/create`} passHref>
+                    <span
+                        className={`${
+                            visibility ? "visible" : "hidden"
+                        } absolute`}
+                        style={{
+                            backgroundColor: "black",
+                            fontSize: "0.6rem",
+                            color: "#e2e7e7",
+                            fontWeight: "700",
+                            border: "2px solid brown",
+                            borderRadius: "5px",
+                            padding: "5px",
+                            boxShadow: "0px 0px 5px 3px brown inset",
+                        }}
+                        //open create terms drawer
+                        onClick={(e) => {
+                            // e.preventDefault();
+                            // dispatch(
+                            //     toggleTermDrawer({ type: 0, isOpen: true })
+                            // );
+                        }}
+                    >
+                        Create Term
+                    </span>
+                </Link>
+            </button>
+        </Link>
     );
 };
 
