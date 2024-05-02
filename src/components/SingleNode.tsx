@@ -116,7 +116,7 @@ const SingleNode: React.FC<SingleNodeProps> = ({
                         border: "1px solid #cea7a7",
                         borderRadius: "5px",
                         padding: "10px",
-                        opacity: `${visibility && !isCenter ? 1 : 0}`,
+                        opacity: `${visibility ? 1 : 0}`,
                         transition: "all 0.3s ease-in-out",
                         // boxShadow: "0px 0px 5px 3px brown inset",
                     }}
