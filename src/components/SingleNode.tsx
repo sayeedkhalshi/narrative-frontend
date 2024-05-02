@@ -125,7 +125,7 @@ const SingleNode: React.FC<SingleNodeProps> = ({
                 <Link href={`/terms/${address}/`} passHref>
                     <span
                         className={`${
-                            visibility ? "visible" : "hidden"
+                            visibility && !isCenter ? "visible" : "hidden"
                         } absolute`}
                         style={{
                             top: "-30px",
