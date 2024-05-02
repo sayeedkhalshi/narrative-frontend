@@ -118,15 +118,29 @@ const SingleNode: React.FC<SingleNodeProps> = ({
                             padding: "5px",
                             boxShadow: "0px 0px 5px 3px brown inset",
                         }}
-                        //open create terms drawer
-                        onClick={(e) => {
-                            // e.preventDefault();
-                            // dispatch(
-                            //     toggleTermDrawer({ type: 0, isOpen: true })
-                            // );
-                        }}
                     >
                         Create Term
+                    </span>
+                </Link>
+                <Link href={`/terms/${address}/`} passHref>
+                    <span
+                        className={`${
+                            visibility ? "visible" : "hidden"
+                        } absolute`}
+                        style={{
+                            top: "-30px",
+                            left: "10px",
+                            backgroundColor: "#e2e7e7",
+                            fontSize: "0.8rem",
+                            color: "#333333",
+                            fontWeight: "700",
+                            border: "2px solid brown",
+                            borderRadius: "5px",
+                            padding: "5px",
+                            boxShadow: "0px 0px 5px 3px brown inset",
+                        }}
+                    >
+                        See Details
                     </span>
                 </Link>
             </button>
