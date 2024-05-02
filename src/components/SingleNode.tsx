@@ -81,70 +81,72 @@ const SingleNode: React.FC<SingleNodeProps> = ({
     const node = nodeDetails as TermDetails;
 
     return (
-        <Link href={`/terms/${address}`} passHref>
-            <button
-                onMouseEnter={() => setVisibility(true)}
-                onMouseLeave={() => setVisibility(false)}
-                id={id}
-                style={style}
-                className={`${
-                    isCenter ? "shadow-btn mx-auto filter-shadow" : "sub-terms"
-                }`}
-                onClick={(e) => {
-                    if (!isCenter) {
-                        e.preventDefault();
-                        dispatch(
-                            replaceCentralAddressByIndex({
-                                addressIndex,
-                                address,
-                            })
-                        );
-                    }
-                }}
+        <button
+            onMouseEnter={() => setVisibility(true)}
+            onMouseLeave={() => setVisibility(false)}
+            id={id}
+            style={style}
+            className={`${
+                isCenter ? "shadow-btn mx-auto filter-shadow" : "sub-terms"
+            }`}
+            onClick={(e) => {
+                if (!isCenter) {
+                    e.preventDefault();
+                    dispatch(
+                        replaceCentralAddressByIndex({
+                            addressIndex,
+                            address,
+                        })
+                    );
+                }
+            }}
+        >
+            <Link
+                href={isCenter ? `${isCenter}/terms/${address}` : "#"}
+                passHref
             >
                 {node.title}
-                <Link href={`/terms/${address}/create`} passHref>
-                    <span
-                        className={`${
-                            visibility ? "visible" : "hidden"
-                        } absolute`}
-                        style={{
-                            backgroundColor: "black",
-                            fontSize: "0.6rem",
-                            color: "#e2e7e7",
-                            fontWeight: "700",
-                            border: "2px solid brown",
-                            borderRadius: "5px",
-                            padding: "5px",
-                            boxShadow: "0px 0px 5px 3px brown inset",
-                        }}
-                    >
-                        Create Term
-                    </span>
-                </Link>
-                <Link href={`/terms/${address}/`} passHref>
-                    <span
-                        className={`${
-                            visibility && !isCenter ? "visible" : "hidden"
-                        } absolute`}
-                        style={{
-                            top: "-30px",
-                            left: "10px",
-                            backgroundColor: "#e2e7e7",
-                            fontSize: "0.8rem",
-                            color: "#333333",
-                            fontWeight: "700",
-                            border: "2px solid brown",
-                            borderRadius: "5px",
-                            padding: "5px",
-                            boxShadow: "0px 0px 5px 3px brown inset",
-                        }}
-                    >
-                        See Details
-                    </span>
-                </Link>
-            </button>
-        </Link>
+            </Link>
+
+            <Link
+                href={`/terms/${address}/create`}
+                passHref
+                style={{
+                    position: "absolute",
+                    backgroundColor: "#e8e2e2",
+                    fontSize: "0.8rem",
+                    color: "rgb(26 35 35)",
+                    fontWeight: "700",
+                    border: "1px solid #cea7a7",
+                    borderRadius: "5px",
+                    padding: "10px",
+                    opacity: `${visibility && !isCenter ? 1 : 0}`,
+                    transition: "all 0.3s ease-in-out",
+                    // boxShadow: "0px 0px 5px 3px brown inset",
+                }}
+            >
+                Create Term
+            </Link>
+            <Link
+                href={`/terms/${address}/`}
+                passHref
+                style={{
+                    position: "absolute",
+                    top: "-30px",
+                    left: "10px",
+                    backgroundColor: "rgb(226, 231, 231)",
+                    fontSize: "0.8rem",
+                    color: "rgb(51, 51, 51)",
+                    fontWeight: "700",
+                    borderRadius: "5px",
+                    padding: "5px",
+                    opacity: `${visibility && !isCenter ? 1 : 0}`,
+                    transition: "all 0.3s ease-in-out",
+                }}
+            >
+                See Details
+            </Link>
+        </button>
     );
 };
 
