@@ -3,6 +3,11 @@
 import React, { useEffect, useRef, useState } from "react";
 import SingleNode from "./SingleNode";
 import { testTermsList } from "@/utils/testTermsList";
+import { useDispatch, useSelector } from "react-redux";
+import {
+    changeCentralAddressFromDepth,
+    selectCentralAddressLevelsByIndex,
+} from "@/redux/features/centralTerms.slice";
 
 type ConnectedNodeProps = {
     address: `0x${string}`;
@@ -17,6 +22,10 @@ const ConnectedNode: React.FC<ConnectedNodeProps> = ({
     address,
     addressIndex,
 }) => {
+    const dispatch = useDispatch();
+    const levels = useSelector((state: any) =>
+        selectCentralAddressLevelsByIndex(state, addressIndex)
+    );
     const [animationEnded, setAnimatedEnded] = useState(false);
     const numberOfElements = testTermsList.length;
     const distanceFromCenter = 250;
@@ -90,7 +99,6 @@ const ConnectedNode: React.FC<ConnectedNodeProps> = ({
     const animationRef = useRef(null);
 
     function handleAnimationEnd() {
-        console.log("animation ended!");
         setAnimatedEnded(true);
     }
 
@@ -133,6 +141,36 @@ const ConnectedNode: React.FC<ConnectedNodeProps> = ({
                 //boxShadow: "0px 1px 13px -5px #ccc",
             }}
         >
+            <p className="text-gray-700 relative z-40">
+                Depth: <span>{levels?.length}</span>
+                {"--->"}
+                {levels?.map((level, i) => {
+                    return (
+                        <>
+                            <span
+                                className={`cursor-pointer px-2 py-1 rounded-sm mx-1 ${
+                                    address === level.address
+                                        ? "bg-gray-300 text-gray-500"
+                                        : "text-gray-700 bg-transparent"
+                                }`}
+                                key={i}
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    dispatch(
+                                        changeCentralAddressFromDepth({
+                                            addressIndex,
+                                            address: level.address,
+                                        })
+                                    );
+                                }}
+                            >
+                                {i + 1}
+                            </span>
+                            {"-"}
+                        </>
+                    );
+                })}
+            </p>
             <div
                 className="node-container relative"
                 style={{

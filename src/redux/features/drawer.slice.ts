@@ -24,7 +24,6 @@ export const drawerSlice = createSlice({
     initialState,
     reducers: {
         toggleTermDrawer(state, action: PayloadAction<DrawerState["drawer"]>) {
-            console.log("working", action.payload);
             state.drawer.type = action.payload.type;
             state.drawer.isOpen = action.payload.isOpen;
         },

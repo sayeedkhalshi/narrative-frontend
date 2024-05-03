@@ -40,10 +40,7 @@ const CreateLearningCurveForm: React.FC<CreateLearningCurveFormProps> = ({
     } = useForm<CreateLearningCurveFormValues>();
 
     const onSubmit = async (data: CreateLearningCurveFormValues) => {
-        console.log("data", data);
-
         try {
-            console.log("data", data);
             // Validate the form data using the login schema
             // If validation passes, submit the form
             const { curve } = data;
@@ -55,7 +52,6 @@ const CreateLearningCurveForm: React.FC<CreateLearningCurveFormProps> = ({
             });
         } catch (error: any) {
             // If validation fails, set the errors for each field
-            console.log("error", error);
             if (error instanceof z.ZodError) {
                 error.errors.forEach((err: any) => {
                     setError(err.path[0] as "curve", {

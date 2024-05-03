@@ -1,10 +1,8 @@
 import { term_abi } from "@/abi/Term";
-import { toggleTermDrawer } from "@/redux/features/drawer.slice";
 import Link from "next/link";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useReadContract } from "wagmi";
-import TermsOnMap from "./TermsOnMap";
 import { replaceCentralAddressByIndex } from "@/redux/features/centralTerms.slice";
 
 interface SingleNodeProps {
@@ -77,7 +75,6 @@ const SingleNode: React.FC<SingleNodeProps> = ({
         );
     }
 
-    console.log("node details", nodeDetails);
     const node = nodeDetails as TermDetails;
 
     return (
@@ -93,10 +90,12 @@ const SingleNode: React.FC<SingleNodeProps> = ({
                 onClick={(e) => {
                     if (!isCenter) {
                         e.preventDefault();
+                        console.log(1);
                         dispatch(
                             replaceCentralAddressByIndex({
                                 addressIndex,
                                 address,
+                                title: node.title,
                             })
                         );
                     }

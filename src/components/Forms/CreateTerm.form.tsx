@@ -39,10 +39,7 @@ const CreateTermForm: React.FC<CreateTermFormProps> = ({ term, address }) => {
     } = useForm<CreateTermFormValues>();
 
     const onSubmit = async (data: CreateTermFormValues) => {
-        console.log("data", data);
-
         try {
-            console.log("data", data);
             // Validate the form data using the login schema
             await createTermSchema.parseAsync(data);
             // If validation passes, submit the form
@@ -55,7 +52,6 @@ const CreateTermForm: React.FC<CreateTermFormProps> = ({ term, address }) => {
             });
         } catch (error: any) {
             // If validation fails, set the errors for each field
-            console.log("error", error);
             if (error instanceof z.ZodError) {
                 error.errors.forEach((err: any) => {
                     setError(err.path[0] as "title" | "details", {

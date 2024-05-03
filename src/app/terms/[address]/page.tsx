@@ -24,7 +24,6 @@ export default function SingleTermPage({
         return item;
     }
 
-    console.log("a", params.address);
     const {
         data: details,
         error,
@@ -82,7 +81,6 @@ export default function SingleTermPage({
 
     const termType = findTermType(Number(termDetails?.termType));
 
-    console.log("t", termDetails);
     return (
         <div className="max-w-2xl mx-auto mt-16 px-4 sm:px-6 lg:px-8">
             {termDetails && (

@@ -5,8 +5,11 @@ import ConnectedNode from "./ConnectedNode";
 import { learnea_abi } from "@/abi/Learnea";
 import { learnea_contract_address } from "@/lib/constant";
 import { term_abi } from "@/abi/Term";
-import { selectSingleCentralAddress } from "@/redux/features/centralTerms.slice";
-import { useSelector } from "react-redux";
+import {
+    selectSingleCentralAddress,
+    setCentralTermsLevelbyIndex,
+} from "@/redux/features/centralTerms.slice";
+import { useDispatch, useSelector } from "react-redux";
 
 type TermsOnMapProps = {
     addressIndex: number;
@@ -16,6 +19,8 @@ const TermsOnMap: React.FC<TermsOnMapProps> = ({ addressIndex }) => {
     const address = useSelector((state: any) =>
         selectSingleCentralAddress(state, addressIndex)
     );
+
+    const dispatch = useDispatch();
 
     const {
         data: nodeDetails,
@@ -121,6 +126,7 @@ const TermsOnMap: React.FC<TermsOnMapProps> = ({ addressIndex }) => {
     }
 
     const allNode = nodeDetails;
+    const centralNodeDetails = allNode[0].result as TermDetails;
     const perspectiveNodes = allNode[1].result as `0x${string}`;
     const coTermsNodes = allNode[2].result as `0x${string}`;
     const coTermsNodes2 = allNode[3].result as `0x${string}`;
@@ -129,6 +135,15 @@ const TermsOnMap: React.FC<TermsOnMapProps> = ({ addressIndex }) => {
     const philosophyTermsNodes = allNode[6].result as `0x${string}`;
     const scientificTermsNodes = allNode[7].result as `0x${string}`;
     const scientificTermsNodes2 = allNode[8].result as `0x${string}`;
+
+    dispatch(
+        setCentralTermsLevelbyIndex({
+            index: addressIndex,
+            title: centralNodeDetails.title,
+        })
+    );
+
+    console.log("again set");
 
     const nodesAround = [
         perspectiveNodes,
@@ -145,7 +160,7 @@ const TermsOnMap: React.FC<TermsOnMapProps> = ({ addressIndex }) => {
         <>
             <ConnectedNode
                 address={address}
-                centralNode={allNode[0].result as TermDetails}
+                centralNode={centralNodeDetails}
                 nodesAround={nodesAround}
                 addressIndex={addressIndex}
             />
