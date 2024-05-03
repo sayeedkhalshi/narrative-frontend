@@ -6,10 +6,15 @@ import { learnea_abi } from "@/abi/Learnea";
 import { learnea_contract_address } from "@/lib/constant";
 import { term_abi } from "@/abi/Term";
 import {
+    selectCentralAddressAroundTermsTypeByIndex,
     selectSingleCentralAddress,
     setCentralTermsLevelbyIndex,
 } from "@/redux/features/centralTerms.slice";
 import { useDispatch, useSelector } from "react-redux";
+import {
+    findFunctionListForTermTypes,
+    getAllMethodsForTermEachFilter,
+} from "@/types/Term.type";
 
 type TermsOnMapProps = {
     addressIndex: number;
@@ -20,6 +25,14 @@ const TermsOnMap: React.FC<TermsOnMapProps> = ({ addressIndex }) => {
         selectSingleCentralAddress(state, addressIndex)
     );
 
+    const filterValueForAroundTerms = useSelector((state: any) =>
+        selectCentralAddressAroundTermsTypeByIndex(state, addressIndex)
+    );
+
+    const allMethods = getAllMethodsForTermEachFilter(
+        filterValueForAroundTerms,
+        8
+    );
     const dispatch = useDispatch();
 
     const {
@@ -38,50 +51,50 @@ const TermsOnMap: React.FC<TermsOnMapProps> = ({ addressIndex }) => {
             {
                 abi: learnea_abi,
                 address: learnea_contract_address, //control structure
-                functionName: "getLastPerspectivesTerms",
-                args: [address, 1],
+                functionName: allMethods[0].method,
+                args: [address, allMethods[0].indexValue],
             },
             {
                 abi: learnea_abi,
                 address: learnea_contract_address, //control structure
-                functionName: "getLastCoTerm",
-                args: [address, 1],
+                functionName: allMethods[1].method,
+                args: [address, allMethods[1].indexValue],
             },
             {
                 abi: learnea_abi,
                 address: learnea_contract_address, //control structure
-                functionName: "getLastCoTerm",
-                args: [address, 2],
+                functionName: allMethods[2].method,
+                args: [address, allMethods[2].indexValue],
             },
             {
                 abi: learnea_abi,
                 address: learnea_contract_address, //control structure
-                functionName: "getLastMicroTerm",
-                args: [address, 1],
+                functionName: allMethods[3].method,
+                args: [address, allMethods[3].indexValue],
             },
             {
                 abi: learnea_abi,
                 address: learnea_contract_address, //control structure
-                functionName: "getLastMacroTerm",
-                args: [address, 1],
+                functionName: allMethods[4].method,
+                args: [address, allMethods[4].indexValue],
             },
             {
                 abi: learnea_abi,
                 address: learnea_contract_address, //control structure
-                functionName: "getLastPhilosophyTerm",
-                args: [address, 1],
+                functionName: allMethods[5].method,
+                args: [address, allMethods[5].indexValue],
             },
             {
                 abi: learnea_abi,
                 address: learnea_contract_address, //control structure
-                functionName: "getLastScientificTerms",
-                args: [address, 1],
+                functionName: allMethods[6].method,
+                args: [address, allMethods[6].indexValue],
             },
             {
                 abi: learnea_abi,
                 address: learnea_contract_address, //control structure
-                functionName: "getLastScientificTerms",
-                args: [address, 2],
+                functionName: allMethods[7].method,
+                args: [address, allMethods[7].indexValue],
             },
         ],
     });

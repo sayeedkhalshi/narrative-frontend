@@ -99,6 +99,36 @@ export default function SingleTermPage({
                         >
                             {termDetails && termDetails.title}
                         </h1>
+                        <div>
+                            <Link
+                                href={`/terms/${params.address}/create`}
+                                className="hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full flex items-center"
+                                style={{
+                                    borderRadius: "4px",
+                                    margin: "10px 5px",
+                                    backgroundColor: "darkgreen",
+                                    display: "block",
+                                    width: "100px",
+                                    float: "left",
+                                }}
+                            >
+                                Create
+                            </Link>
+                            <Link
+                                href={`/terms/${params.address}/create`}
+                                className="hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full flex items-center"
+                                style={{
+                                    borderRadius: "4px",
+                                    margin: "10px 5px",
+                                    backgroundColor: "darkgreen",
+                                    display: "block",
+                                    width: "100px",
+                                    float: "right",
+                                }}
+                            >
+                                Map
+                            </Link>
+                        </div>
                         <p
                             className="mt-2 text-gray-700"
                             style={{
@@ -118,6 +148,7 @@ export default function SingleTermPage({
                         >
                             {termDetails.details}
                         </p>
+
                         <Curves term={termDetails} address={params.address} />
                         <p className="mt-2 text-gray-700 p-5">
                             <em>Derived From: </em> <br />

@@ -2,11 +2,8 @@
 import { learnea_abi } from "@/abi/Learnea";
 import TermsOnMap from "@/components/TermsOnMap";
 import { learnea_contract_address } from "@/lib/constant";
-import {
-    selectcentralTerms,
-    setCentralTerms,
-} from "@/redux/features/centralTerms.slice";
-import { useDispatch, useSelector } from "react-redux";
+import { setCentralTerms } from "@/redux/features/centralTerms.slice";
+import { useDispatch } from "react-redux";
 import { useReadContract } from "wagmi";
 
 export default function Home() {

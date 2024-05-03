@@ -4,7 +4,7 @@ import { RootState } from "../store";
 interface CentralTermsDetails {
     [key: number]: {
         address: `0x${string}`;
-
+        aroundTermsType: string;
         levels: [
             {
                 address: `0x${string}`;
@@ -58,6 +58,7 @@ export const centralTermsSlice = createSlice({
                 // Initialize each entry as an object
                 newCentralTerms[i] = {
                     address: action.payload[i],
+                    aroundTermsType: "ALL",
                     levels: [
                         {
                             address: action.payload[i],
@@ -85,6 +86,13 @@ export const centralTermsSlice = createSlice({
                 },
             ];
         },
+        setCentralAddressAroundTermsTypeByIndex(
+            state,
+            action: PayloadAction<{ index: number; value: string }>
+        ) {
+            state.centralTerms[action.payload.index].aroundTermsType =
+                action.payload.value;
+        },
         clearCentralTerms(state) {
             state.centralTerms = {};
         },
@@ -94,6 +102,7 @@ export const centralTermsSlice = createSlice({
 export const {
     replaceCentralAddressByIndex,
     changeCentralAddressFromDepth,
+    setCentralAddressAroundTermsTypeByIndex,
     setCentralTerms,
     setCentralTermsLevelbyIndex,
     clearCentralTerms,
@@ -113,4 +122,11 @@ export const selectCentralAddressLevelsByIndex = (
     index: number
 ): { address: `0x${string}`; title: string }[] | undefined => {
     return state.centralTerms.centralTerms[index].levels;
+};
+
+export const selectCentralAddressAroundTermsTypeByIndex = (
+    state: RootState,
+    index: number
+): string => {
+    return state.centralTerms.centralTerms[index].aroundTermsType;
 };

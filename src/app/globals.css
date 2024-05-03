@@ -57,6 +57,7 @@ This style is for top 1000 terms
     height: 100px;
     position: absolute;
     z-index: 99;
+    font-size: 0.8rem;
 }
 
 .nav-link {
@@ -125,6 +126,7 @@ This style is for top 1000 terms
     min-width: 130px;
     min-height: 70px;
     padding: 4px;
+    font-size: 0.8rem;
 }
 
 .form-wrapper {
@@ -178,4 +180,23 @@ svg {
     to {
         stroke-dashoffset: 0;
     }
+}
+
+.level-details {
+    display: none;
+    margin-top: -50px;
+}
+
+.levels:hover .level-details {
+    display: block;
+}
+
+.filter-list {
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+}
+.filter-dropdown:hover .filter-list {
+    visibility: visible;
+    opacity: 1;
 }

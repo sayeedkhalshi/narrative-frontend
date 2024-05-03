@@ -6,8 +6,11 @@ import { testTermsList } from "@/utils/testTermsList";
 import { useDispatch, useSelector } from "react-redux";
 import {
     changeCentralAddressFromDepth,
+    selectCentralAddressAroundTermsTypeByIndex,
     selectCentralAddressLevelsByIndex,
+    setCentralAddressAroundTermsTypeByIndex,
 } from "@/redux/features/centralTerms.slice";
+import { allTermTypeValues } from "@/types/Term.type";
 
 type ConnectedNodeProps = {
     address: `0x${string}`;
@@ -25,6 +28,9 @@ const ConnectedNode: React.FC<ConnectedNodeProps> = ({
     const dispatch = useDispatch();
     const levels = useSelector((state: any) =>
         selectCentralAddressLevelsByIndex(state, addressIndex)
+    );
+    const filterValueForAroundTerms = useSelector((state: any) =>
+        selectCentralAddressAroundTermsTypeByIndex(state, addressIndex)
     );
     const [animationEnded, setAnimatedEnded] = useState(false);
     const numberOfElements = testTermsList.length;
@@ -146,9 +152,9 @@ const ConnectedNode: React.FC<ConnectedNodeProps> = ({
                 {"--->"}
                 {levels?.map((level, i) => {
                     return (
-                        <>
+                        <span key={i}>
                             <span
-                                className={`cursor-pointer px-2 py-1 rounded-sm mx-1 ${
+                                className={`levels cursor-pointer px-2 py-1 rounded-sm mx-1 ${
                                     address === level.address
                                         ? "bg-gray-300 text-gray-500"
                                         : "text-gray-700 bg-transparent"
@@ -164,13 +170,73 @@ const ConnectedNode: React.FC<ConnectedNodeProps> = ({
                                     );
                                 }}
                             >
-                                {i + 1}
+                                <span
+                                    className="level-details absolute"
+                                    style={{
+                                        backgroundColor: "#fefefe",
+                                        padding: "2px 5px",
+                                        borderRadius: "5px",
+                                        fontSize: "0.81rem",
+                                        color: "#817d78",
+                                    }}
+                                >
+                                    {i != 0 ? level.title : centralNode.title} -{" "}
+                                    {level.address}
+                                </span>
+                                <span>{i + 1}</span>
                             </span>
                             {"-"}
-                        </>
+                        </span>
                     );
                 })}
             </p>
+            <div className="filter-dropdown text-gray-700 z-40 my-2 absolute">
+                Filter By <br />
+                Term Type:
+                <span className=" bg-gray-300 text-gray-600 py-1 px-2">
+                    {filterValueForAroundTerms} ^
+                </span>
+                <br />
+                <p className="filter-list ml-12">
+                    <span
+                        onClick={() =>
+                            dispatch(
+                                setCentralAddressAroundTermsTypeByIndex({
+                                    index: addressIndex,
+                                    value: "ALL",
+                                })
+                            )
+                        }
+                        className="hover:bg-green-800 hover:text-gray-300 p-1 rounded-sm cursor-pointer"
+                    >
+                        ALL
+                    </span>
+                    <br />
+                    {allTermTypeValues().map((termValue, i) => {
+                        return (
+                            <span key={i}>
+                                <span
+                                    onClick={() =>
+                                        dispatch(
+                                            setCentralAddressAroundTermsTypeByIndex(
+                                                {
+                                                    index: addressIndex,
+                                                    value: termValue,
+                                                }
+                                            )
+                                        )
+                                    }
+                                    key={i}
+                                    className="hover:bg-green-800 hover:text-gray-300 p-1 rounded-sm cursor-pointer"
+                                >
+                                    {termValue}
+                                </span>
+                                <br />
+                            </span>
+                        );
+                    })}
+                </p>
+            </div>
             <div
                 className="node-container relative"
                 style={{

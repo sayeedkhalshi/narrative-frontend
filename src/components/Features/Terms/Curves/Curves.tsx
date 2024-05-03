@@ -15,7 +15,7 @@ export const Curves: React.FC<CurvesProps> = ({ address, term }) => {
         <div className="flex flex-col items-center justify-center">
             <button
                 onClick={() => setShowCurve(!showCurve)}
-                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full flex items-center"
+                className="hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full flex items-center"
                 style={{
                     borderRadius: 0,
                     margin: "10px 5px",
