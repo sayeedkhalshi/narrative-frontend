@@ -157,6 +157,8 @@ const TermsOnMap: React.FC<TermsOnMapProps> = ({ addressIndex }) => {
         );
     }
 
+    console.log("c t", centralNodeDetails.title);
+
     dispatch(
         setCentralTermsLevelbyIndex({
             index: addressIndex,

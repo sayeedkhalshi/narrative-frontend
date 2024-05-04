@@ -76,7 +76,10 @@ export const centralTermsSlice = createSlice({
             state,
             action: PayloadAction<{ index: number; title: string }>
         ) {
-            if (state.centralTerms[action.payload.index].levels.length > 0) {
+            if (
+                state.centralTerms[action.payload.index].levels[0].title
+                    .length > 0
+            ) {
                 return;
             }
             state.centralTerms[action.payload.index].levels = [

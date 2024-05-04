@@ -147,8 +147,8 @@ const ConnectedNode: React.FC<ConnectedNodeProps> = ({
                 //boxShadow: "0px 1px 13px -5px #ccc",
             }}
         >
-            <div className="absolute">
-                <p className="text-gray-700 relative z-40">
+            <div className="absolute z-40">
+                <p className="text-gray-700 z-40">
                     Depth: <span>{levels?.length}</span>
                     {"--->"}
                     {levels?.map((level, i) => {
@@ -179,12 +179,10 @@ const ConnectedNode: React.FC<ConnectedNodeProps> = ({
                                             borderRadius: "5px",
                                             fontSize: "0.81rem",
                                             color: "#817d78",
+                                            marginTop: "-65px",
                                         }}
                                     >
-                                        {i != 0
-                                            ? level.title
-                                            : centralNode.title}{" "}
-                                        - {level.address}
+                                        {level.title} - {level.address}
                                     </span>
                                     <span>{i + 1}</span>
                                 </span>
@@ -193,7 +191,7 @@ const ConnectedNode: React.FC<ConnectedNodeProps> = ({
                         );
                     })}
                 </p>
-                <div className="filter-dropdown text-gray-700 z-40 my-2 absolute">
+                <div className="filter-dropdown text-gray-700 z-40 my-2">
                     Filter By <br />
                     Term Type:
                     <span className=" bg-gray-300 text-gray-600 py-1 px-2">
