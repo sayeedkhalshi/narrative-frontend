@@ -115,7 +115,7 @@ export default function SingleTermPage({
                                 Create
                             </Link>
                             <Link
-                                href={`/terms/${params.address}/create`}
+                                href={`/terms/${params.address}/maps`}
                                 className="hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full flex items-center"
                                 style={{
                                     borderRadius: "4px",
