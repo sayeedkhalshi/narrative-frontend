@@ -147,95 +147,99 @@ const ConnectedNode: React.FC<ConnectedNodeProps> = ({
                 //boxShadow: "0px 1px 13px -5px #ccc",
             }}
         >
-            <p className="text-gray-700 relative z-40">
-                Depth: <span>{levels?.length}</span>
-                {"--->"}
-                {levels?.map((level, i) => {
-                    return (
-                        <span key={i}>
-                            <span
-                                className={`levels cursor-pointer px-2 py-1 rounded-sm mx-1 ${
-                                    address === level.address
-                                        ? "bg-gray-300 text-gray-500"
-                                        : "text-gray-700 bg-transparent"
-                                }`}
-                                key={i}
-                                onClick={(e) => {
-                                    e.preventDefault();
-                                    dispatch(
-                                        changeCentralAddressFromDepth({
-                                            addressIndex,
-                                            address: level.address,
-                                        })
-                                    );
-                                }}
-                            >
-                                <span
-                                    className="level-details absolute"
-                                    style={{
-                                        backgroundColor: "#fefefe",
-                                        padding: "2px 5px",
-                                        borderRadius: "5px",
-                                        fontSize: "0.81rem",
-                                        color: "#817d78",
-                                    }}
-                                >
-                                    {i != 0 ? level.title : centralNode.title} -{" "}
-                                    {level.address}
-                                </span>
-                                <span>{i + 1}</span>
-                            </span>
-                            {"-"}
-                        </span>
-                    );
-                })}
-            </p>
-            <div className="filter-dropdown text-gray-700 z-40 my-2 absolute">
-                Filter By <br />
-                Term Type:
-                <span className=" bg-gray-300 text-gray-600 py-1 px-2">
-                    {filterValueForAroundTerms} ^
-                </span>
-                <br />
-                <p className="filter-list ml-12">
-                    <span
-                        onClick={() =>
-                            dispatch(
-                                setCentralAddressAroundTermsTypeByIndex({
-                                    index: addressIndex,
-                                    value: "ALL",
-                                })
-                            )
-                        }
-                        className="hover:bg-green-800 hover:text-gray-300 p-1 rounded-sm cursor-pointer"
-                    >
-                        ALL
-                    </span>
-                    <br />
-                    {allTermTypeValues().map((termValue, i) => {
+            <div className="absolute">
+                <p className="text-gray-700 relative z-40">
+                    Depth: <span>{levels?.length}</span>
+                    {"--->"}
+                    {levels?.map((level, i) => {
                         return (
                             <span key={i}>
                                 <span
-                                    onClick={() =>
-                                        dispatch(
-                                            setCentralAddressAroundTermsTypeByIndex(
-                                                {
-                                                    index: addressIndex,
-                                                    value: termValue,
-                                                }
-                                            )
-                                        )
-                                    }
+                                    className={`levels cursor-pointer px-2 py-1 rounded-sm mx-1 ${
+                                        address === level.address
+                                            ? "bg-gray-300 text-gray-500"
+                                            : "text-gray-700 bg-transparent"
+                                    }`}
                                     key={i}
-                                    className="hover:bg-green-800 hover:text-gray-300 p-1 rounded-sm cursor-pointer"
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        dispatch(
+                                            changeCentralAddressFromDepth({
+                                                addressIndex,
+                                                address: level.address,
+                                            })
+                                        );
+                                    }}
                                 >
-                                    {termValue}
+                                    <span
+                                        className="level-details absolute"
+                                        style={{
+                                            backgroundColor: "#fefefe",
+                                            padding: "2px 5px",
+                                            borderRadius: "5px",
+                                            fontSize: "0.81rem",
+                                            color: "#817d78",
+                                        }}
+                                    >
+                                        {i != 0
+                                            ? level.title
+                                            : centralNode.title}{" "}
+                                        - {level.address}
+                                    </span>
+                                    <span>{i + 1}</span>
                                 </span>
-                                <br />
+                                {"-"}
                             </span>
                         );
                     })}
                 </p>
+                <div className="filter-dropdown text-gray-700 z-40 my-2 absolute">
+                    Filter By <br />
+                    Term Type:
+                    <span className=" bg-gray-300 text-gray-600 py-1 px-2">
+                        {filterValueForAroundTerms} ^
+                    </span>
+                    <br />
+                    <p className="filter-list ml-12">
+                        <span
+                            onClick={() =>
+                                dispatch(
+                                    setCentralAddressAroundTermsTypeByIndex({
+                                        index: addressIndex,
+                                        value: "ALL",
+                                    })
+                                )
+                            }
+                            className="hover:bg-green-800 hover:text-gray-300 p-1 rounded-sm cursor-pointer"
+                        >
+                            ALL
+                        </span>
+                        <br />
+                        {allTermTypeValues().map((termValue, i) => {
+                            return (
+                                <span key={i}>
+                                    <span
+                                        onClick={() =>
+                                            dispatch(
+                                                setCentralAddressAroundTermsTypeByIndex(
+                                                    {
+                                                        index: addressIndex,
+                                                        value: termValue,
+                                                    }
+                                                )
+                                            )
+                                        }
+                                        key={i}
+                                        className="hover:bg-green-800 hover:text-gray-300 p-1 rounded-sm cursor-pointer"
+                                    >
+                                        {termValue}
+                                    </span>
+                                    <br />
+                                </span>
+                            );
+                        })}
+                    </p>
+                </div>
             </div>
             <div
                 className="node-container relative"
@@ -249,6 +253,7 @@ const ConnectedNode: React.FC<ConnectedNodeProps> = ({
                 <SingleNode
                     name={centralNode.title}
                     isCenter={true}
+                    createTermType={0}
                     style={{
                         position: "absolute",
                         left: `${centerPoint.x - 65}px`,
@@ -261,6 +266,7 @@ const ConnectedNode: React.FC<ConnectedNodeProps> = ({
                     <SingleNode
                         addressIndex={addressIndex}
                         centralAddress={address}
+                        createTermType={i}
                         key={i}
                         name={""}
                         address={position.term}

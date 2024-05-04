@@ -1,6 +1,5 @@
 "use client";
 
-// SignupForm.tsx
 import React from "react";
 import { useForm } from "react-hook-form";
 import {
@@ -10,7 +9,7 @@ import {
 import { z } from "zod";
 import { useSelector } from "react-redux";
 import { selectUser } from "@/redux/features/user.slice";
-import { TermType } from "@/types/Term.type";
+import { TermType, TermTypes, findTermTypeValue } from "@/types/Term.type";
 import Link from "next/link";
 import {
     type BaseError,
@@ -23,9 +22,14 @@ import { learnea_abi } from "@/abi/Learnea";
 type CreateTermFormProps = {
     term: TermDetails;
     address: `0x${string}`;
+    createTermType: string | null;
 };
 
-const CreateTermForm: React.FC<CreateTermFormProps> = ({ term, address }) => {
+const CreateTermForm: React.FC<CreateTermFormProps> = ({
+    term,
+    address,
+    createTermType,
+}) => {
     const { data: hash, error, isPending, writeContract } = useWriteContract();
 
     const user = useSelector(selectUser);
@@ -71,8 +75,6 @@ const CreateTermForm: React.FC<CreateTermFormProps> = ({ term, address }) => {
     if (!user) {
         return <div>Loading...</div>;
     }
-    const paragraphs = watch("details");
-    console.log("paragraphs", paragraphs);
     return (
         <form
             className="w-full max-w-sm mx-auto form-wrapper rounded-xl"
@@ -136,20 +138,16 @@ const CreateTermForm: React.FC<CreateTermFormProps> = ({ term, address }) => {
                 <select
                     id="termType"
                     {...register("termType")}
-                    defaultValue={2}
+                    defaultValue={createTermType ? Number(createTermType) : 0}
                     className="w-full px-3 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring focus:border-indigo-500 input"
                 >
-                    <option value={TermType.CO}>Co-Term / Similar Term</option>
-                    <option value={TermType.MACRO}>Parent Term</option>
-                    <option value={TermType.MICRO}>Child Term</option>
-                    <option value={TermType.PERSPECTIVE}>
-                        Perspective / From another Perspective
-                    </option>
-                    <option value={TermType.PHILOSOPHY}>
-                        Philosophy Term / New Learning
-                    </option>
-                    <option value={TermType.SCIENTIFIC}>Scientific Term</option>
-                    <option value={TermType.STANDALONE}>Standalone Term</option>
+                    {TermTypes.map((term, i) => {
+                        return (
+                            <option key={i} value={i}>
+                                {term}
+                            </option>
+                        );
+                    })}
                 </select>
                 {errors.termType && (
                     <p className="text-red-500 text-xs">

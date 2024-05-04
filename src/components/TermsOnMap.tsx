@@ -101,14 +101,14 @@ const TermsOnMap: React.FC<TermsOnMapProps> = ({ addressIndex }) => {
 
     if (error) {
         return (
-            <div className="flex justify-center items-center h-screen">
+            <div className="flex justify-center items-center h-screen text-red-900">
                 Error! {error.message}
             </div>
         );
     }
     if (typeof address == "undefined" || !address) {
         return (
-            <div className="flex justify-center items-center h-screen">
+            <div className="flex justify-center items-center h-screen text-red-900">
                 No Address Provided
             </div>
         );
@@ -116,7 +116,7 @@ const TermsOnMap: React.FC<TermsOnMapProps> = ({ addressIndex }) => {
 
     if (isPending) {
         return (
-            <div className="flex justify-center items-center h-screen">
+            <div className="flex justify-center items-center h-screen tex-green-700">
                 Loading...
             </div>
         );
@@ -124,7 +124,7 @@ const TermsOnMap: React.FC<TermsOnMapProps> = ({ addressIndex }) => {
 
     if (isLoadingError) {
         return (
-            <div className="flex justify-center items-center h-screen">
+            <div className="flex justify-center items-center h-screen text-red-900">
                 Loading Err!
             </div>
         );
@@ -132,7 +132,7 @@ const TermsOnMap: React.FC<TermsOnMapProps> = ({ addressIndex }) => {
 
     if (isError) {
         return (
-            <div className="flex justify-center items-center h-screen">
+            <div className="flex justify-center items-center h-screen text-red-900">
                 Error!
             </div>
         );
@@ -148,6 +148,14 @@ const TermsOnMap: React.FC<TermsOnMapProps> = ({ addressIndex }) => {
     const philosophyTermsNodes = allNode[6].result as `0x${string}`;
     const scientificTermsNodes = allNode[7].result as `0x${string}`;
     const scientificTermsNodes2 = allNode[8].result as `0x${string}`;
+
+    if (!centralNodeDetails || typeof centralNodeDetails == "undefined") {
+        return (
+            <div className="flex justify-center items-center h-screen text-red-900">
+                Network error or RPC Request Limit reached. Please reload{" "}
+            </div>
+        );
+    }
 
     dispatch(
         setCentralTermsLevelbyIndex({

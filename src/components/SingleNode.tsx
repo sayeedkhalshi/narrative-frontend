@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useReadContract } from "wagmi";
 import { replaceCentralAddressByIndex } from "@/redux/features/centralTerms.slice";
+import { TermType } from "@/types/Term.type";
 
 interface SingleNodeProps {
     centralAddress?: `0x${string}`;
@@ -13,6 +14,7 @@ interface SingleNodeProps {
     isCenter: boolean;
     address?: `0x${string}`;
     addressIndex: number;
+    createTermType: TermType;
 }
 
 const SingleNode: React.FC<SingleNodeProps> = ({
@@ -23,6 +25,7 @@ const SingleNode: React.FC<SingleNodeProps> = ({
     address,
     centralAddress,
     addressIndex,
+    createTermType,
 }) => {
     const [visibility, setVisibility] = useState(false);
     const dispatch = useDispatch();
@@ -43,7 +46,7 @@ const SingleNode: React.FC<SingleNodeProps> = ({
                 id={id}
                 style={style}
                 className="sub-terms text-center"
-                href={`/terms/${centralAddress}/create`}
+                href={`/terms/${centralAddress}/create/?termType=${createTermType}`}
                 passHref
             >
                 Create Term
@@ -53,7 +56,7 @@ const SingleNode: React.FC<SingleNodeProps> = ({
 
     if (isPending) {
         return (
-            <div id={id} style={style} className="sub-terms">
+            <div id={id} style={style} className="sub-terms text-green-700">
                 Loading...
             </div>
         );
@@ -61,7 +64,7 @@ const SingleNode: React.FC<SingleNodeProps> = ({
 
     if (isLoadingError) {
         return (
-            <div id={id} style={style} className="sub-terms">
+            <div id={id} style={style} className="sub-terms text-red-900">
                 Loading Err!
             </div>
         );
@@ -69,7 +72,7 @@ const SingleNode: React.FC<SingleNodeProps> = ({
 
     if (isError) {
         return (
-            <div id={id} style={style} className="sub-terms">
+            <div id={id} style={style} className="sub-terms text-red-900">
                 Error!
             </div>
         );
@@ -105,7 +108,7 @@ const SingleNode: React.FC<SingleNodeProps> = ({
             </Link>
 
             <Link
-                href={`/terms/${address}/create`}
+                href={`/terms/${address}/create/?termType=${createTermType}`}
                 passHref
                 style={{
                     position: "absolute",

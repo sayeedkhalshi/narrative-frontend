@@ -2,8 +2,13 @@
 import CreateTermForm from "@/components/Forms/CreateTerm.form";
 import { useReadContract } from "wagmi";
 import { term_abi } from "@/abi/Term";
+import { TermType } from "@/types/Term.type";
+import { useSearchParams } from "next/navigation";
 
 const CreateTermPage = ({ params }: { params: { address: `0x${string}` } }) => {
+    const searchParams = useSearchParams();
+
+    const termType = searchParams.get("termType");
     // Adjusted parsing function to return the correct type
     function parseTermDetails(data: any): TermDetails {
         // If it's a single object, parse it directly
@@ -44,7 +49,11 @@ const CreateTermPage = ({ params }: { params: { address: `0x${string}` } }) => {
 
     return (
         termDetails && (
-            <CreateTermForm address={params.address} term={termDetails} />
+            <CreateTermForm
+                address={params.address}
+                term={termDetails}
+                createTermType={termType}
+            />
         )
     );
 };

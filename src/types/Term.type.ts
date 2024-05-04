@@ -8,6 +8,16 @@ export interface Term {
     updatedAt?: Date;
 }
 
+export const TermTypes = [
+    "STANDALONE",
+    "PERSPECTIVE",
+    "CO",
+    "MICRO",
+    "MACRO",
+    "PHILOSOPHY",
+    "SCIENTIFIC",
+];
+
 export enum TermType {
     STANDALONE,
     PERSPECTIVE,
