@@ -1,4 +1,5 @@
 "use client";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import { Inter } from "next/font/google";
 import "@rainbow-me/rainbowkit/styles.css";
 import { ReduxProvider } from "@/redux/provider";
@@ -22,6 +23,7 @@ export default function RootLayout({
                         {children}
                     </ReduxProvider>
                 </RainbowProviders>
+                <GoogleAnalytics gaId="G-J9E9LGZ479" />
             </body>
         </html>
     );
