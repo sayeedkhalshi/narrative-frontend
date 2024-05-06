@@ -157,9 +157,16 @@ const ConnectedNode: React.FC<ConnectedNodeProps> = ({
                                 <span
                                     className={`levels cursor-pointer px-2 py-1 rounded-sm mx-1 ${
                                         address === level.address
-                                            ? "bg-gray-300 text-gray-500"
-                                            : "text-gray-700 bg-transparent"
+                                            ? "text-gray-500"
+                                            : "text-gray-700"
                                     }`}
+                                    style={{
+                                        backgroundColor:
+                                            address === level.address
+                                                ? "#bfd7bf"
+                                                : "transparent",
+                                        borderRadius: "4px",
+                                    }}
                                     key={i}
                                     onClick={(e) => {
                                         e.preventDefault();
@@ -194,7 +201,13 @@ const ConnectedNode: React.FC<ConnectedNodeProps> = ({
                 <div className="filter-dropdown text-gray-700 z-40 my-2">
                     Filter By <br />
                     Term Type:
-                    <span className=" bg-gray-300 text-gray-600 py-1 px-2">
+                    <span
+                        className="text-gray-600 py-1 px-2"
+                        style={{
+                            backgroundColor: "#bfd7bf",
+                            borderRadius: "4px",
+                        }}
+                    >
                         {filterValueForAroundTerms} ^
                     </span>
                     <br />
