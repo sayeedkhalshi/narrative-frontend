@@ -41,6 +41,7 @@ const TermsOnMap: React.FC<TermsOnMapProps> = ({ addressIndex }) => {
         isPending,
         isError,
         isLoadingError,
+        refetch,
     } = useReadContracts({
         contracts: [
             {
@@ -153,11 +154,19 @@ const TermsOnMap: React.FC<TermsOnMapProps> = ({ addressIndex }) => {
         return (
             <div className="flex justify-center items-center h-screen text-red-900">
                 Network error or RPC Request Limit reached. Please reload{" "}
+                <button
+                    onClick={() =>
+                        refetch({
+                            throwOnError: false,
+                        })
+                    }
+                    className="btn btn-primary bg-green-700 cursor-pointer"
+                >
+                    Reload
+                </button>
             </div>
         );
     }
-
-    console.log("c t", centralNodeDetails.title);
 
     dispatch(
         setCentralTermsLevelbyIndex({
@@ -165,8 +174,6 @@ const TermsOnMap: React.FC<TermsOnMapProps> = ({ addressIndex }) => {
             title: centralNodeDetails.title,
         })
     );
-
-    console.log("again set");
 
     const nodesAround = [
         perspectiveNodes,
