@@ -49,6 +49,7 @@ const TermsOnMap: React.FC<TermsOnMapProps> = ({ addressIndex }) => {
                 address: address, //control structure
                 functionName: "getDetails",
             },
+
             {
                 abi: learnea_abi,
                 address: learnea_contract_address, //control structure
@@ -117,7 +118,7 @@ const TermsOnMap: React.FC<TermsOnMapProps> = ({ addressIndex }) => {
 
     if (isPending) {
         return (
-            <div className="flex justify-center items-center h-screen tex-green-700">
+            <div className="flex justify-center items-center h-screen text-green-700">
                 Loading...
             </div>
         );
@@ -140,6 +141,7 @@ const TermsOnMap: React.FC<TermsOnMapProps> = ({ addressIndex }) => {
     }
 
     const allNode = nodeDetails;
+    console.log("a", allNode);
     const centralNodeDetails = allNode[0].result as TermDetails;
     const perspectiveNodes = allNode[1].result as `0x${string}`;
     const coTermsNodes = allNode[2].result as `0x${string}`;
