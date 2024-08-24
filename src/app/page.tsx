@@ -126,11 +126,11 @@ export default function LandingPage() {
                     </p>
                     <p className="text-lg underline leading-relaxed">
                         Even the most stupid person still has some story built
-                        in them. They are more intelligent than similar brains.
-                        That story is you. Without that, you are nothing.
-                        Because that’s you. I want to build a learning system
-                        that follows the personal narrative of a person, lets
-                        them choose and make a system out of it.
+                        in them. They are more intelligent than we seem to know.
+                        That story is a person itself. Without that, you are
+                        nothing. I want to build a learning system that follows
+                        the personal narrative of a person, lets them choose and
+                        make a system out of it.
                     </p>
                     <p className="text-lg font-semibold leading-relaxed">
                         When you can’t manage all your thoughts, you could name
@@ -140,7 +140,7 @@ export default function LandingPage() {
 
                 <div className="space-y-8">
                     <h2 className="text-2xl font-bold mb-4">
-                        AI Companion & Management
+                        AI Companion & Management.
                     </h2>
                     <p className="text-lg leading-relaxed">
                         To-Do based learning. AI companion for getting personal
@@ -153,6 +153,11 @@ export default function LandingPage() {
                         the dominant flow. Doing is our subtle flow. We learn
                         when we are stuck. It means we choose learning when
                         there is anxiety.
+                    </p>
+                    <p className="text-lg underline leading-relaxed">
+                        Flow is a habit in our character. But I call it flow
+                        because it creates a flow and we run in so many flows
+                        all the time.
                     </p>
                     <p className="text-lg underline leading-relaxed">
                         Force learning is when you call learning a learning. If
