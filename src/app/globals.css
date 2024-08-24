@@ -85,13 +85,13 @@ This style is for top 1000 terms
 .logo-text {
     /* text-shadow: 3px 3px 0 #999, 5px 5px 0 #ddd, 7px 7px 0 #ccc, 9px 9px 0 #bbb;*/
 
-    box-shadow: 2px 2px #bf6565, 4px 4px #592e2a, 6px 6px #a6442e,
+    /* box-shadow: 2px 2px #bf6565, 4px 4px #592e2a, 6px 6px #a6442e,
         8px 8px #f26d3d, 10px 10px #f27c38, -2px -2px #f26849, -4px -4px #f2d544,
         -6px -6px #f2cf66, -8px -8px #f2a30f, -10px -10px #260101,
         -8px 2px 0px #a6a37d, -9px 4px 0px #eeedc8, -12px 6px 0px #2b1c8a,
         3px 8px 0px #250c59, 4px 10px 0px #428964, 5px -2px 0px #a6a37d,
         6px -4px 0px #eeedc9, -9px -6px 0px #b0afd9, 8px -8px 0px #3b42d9,
-        10px -10px 0px #5c73f2;
+        10px -10px 0px #5c73f2; */
     padding: 0px 9px;
     margin-top: 12px;
     background: darkgreen;

@@ -14,8 +14,8 @@ const Menu = () => {
                     <LogoText />
                     <div className=" lg:block lg:ml-6">
                         <div className="flex space-x-4">
-                            <Link href="/" className="nav-link">
-                                Home
+                            <Link href="/app" className="nav-link">
+                                App
                             </Link>
                             <Link
                                 href="https://github.com/sayeedkhalshi/learnea-frontend"
@@ -25,14 +25,14 @@ const Menu = () => {
                                 Code
                             </Link>
                             <Link
-                                href="https://docs.google.com/document/d/1NQoDVxIliHvuVokspC88wOGR_ZO-AQ0OgIl0sPWFNLU/edit"
+                                href="https://github.com/sayeedkhalshi/learnea-dev-docs/blob/main/initial-philosophy-of-app.md"
                                 className="nav-link"
                                 target="_blank"
                             >
                                 Whitepaper
                             </Link>
                             <Link
-                                href="https://github.com/sayeedkhalshi/learnea-dev-docs"
+                                href="https://docs.google.com/document/d/1CZJZGOgpnhuC0wVHnj1gvs3N3kLhJ7qmOSfRMLAWNlc/edit?usp=sharing"
                                 className="nav-link"
                                 target="_blank"
                             >
@@ -51,18 +51,6 @@ const Menu = () => {
                             </div>
                         </div>
                     </div>
-                    <Link
-                        href="https://element.market/collections/ethereum-frogs"
-                        className=""
-                    >
-                        <Image
-                            src={`/images/frog-green.png`}
-                            width={60}
-                            height={45}
-                            alt="efrog"
-                            className="cursor pointer"
-                        />
-                    </Link>
                 </div>
             </div>
         </nav>

@@ -287,7 +287,7 @@ const ConnectedNode: React.FC<ConnectedNodeProps> = ({
                             left: `${
                                 position.x < 500
                                     ? position.x - 113
-                                    : position.x + 15
+                                    : position.x - 15
                             }px`,
                             top: `${
                                 position.y === 200
@@ -307,7 +307,7 @@ const ConnectedNode: React.FC<ConnectedNodeProps> = ({
                     style={{ overflow: "visible" }}
                 >
                     <defs>
-                        <marker
+                        {/* <marker
                             id="customArrowhead"
                             markerWidth="10"
                             markerHeight="7"
@@ -316,7 +316,7 @@ const ConnectedNode: React.FC<ConnectedNodeProps> = ({
                             orient="auto"
                         >
                             <path d="M0,0 L10,3.5 L0,7 z" fill="#000" />
-                        </marker>
+                        </marker> */}
                         <linearGradient
                             id="gradient"
                             x1="0%"
