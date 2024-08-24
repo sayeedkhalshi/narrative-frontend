@@ -114,7 +114,7 @@ export default function LandingPage() {
 
                 <div className="space-y-8">
                     <h2 className="text-2xl font-bold mb-4">
-                        Project-Based Learning
+                        Keep up with the personal story
                     </h2>
                     <p className="text-lg leading-relaxed">
                         There are things that are thinking and processing from
@@ -162,13 +162,13 @@ export default function LandingPage() {
                     <p className="text-lg font-semibold leading-relaxed">
                         If you think neuroplasticity is learning, then it’s
                         unconscious. So if we let our brain do its part, force
-                        learning goes away. Because learning is...
+                        learning goes away. Because learning is unconscious.
                     </p>
                 </div>
 
                 <div className="space-y-8">
                     <h2 className="text-2xl font-bold mb-4">
-                        The Future Vision
+                        The Future Vision Of Non Control Development Structure
                     </h2>
                     <p className="text-lg leading-relaxed">
                         Document each learning on earth, name each learning, and
@@ -227,7 +227,7 @@ export default function LandingPage() {
                     </h2>
                     <p className="text-lg leading-relaxed">
                         Make every user a node runner and provider of their own
-                        RPC and solve the pro-paid software issue.
+                        RPC and solve the pro/paid software issue.
                     </p>
                     <p className="text-lg italic leading-relaxed">
                         Following the learning cycle - events, narrative,
@@ -249,20 +249,25 @@ export default function LandingPage() {
                         Replacing Traditional Education
                     </h2>
                     <p className="text-lg leading-relaxed">
-                        Replacing school with teachers creates space in a term
-                        and making up lessons and giving people an opportunity
-                        to earn from that. Online to offline school creation in
-                        each town by funding could happen.
+                        Replacing school with teachers creating courses in a
+                        term and making up lessons and giving people an
+                        opportunity to earn from that. In the future, online to
+                        offline school creation in each town by funding could
+                        happen where schools with non control strcuture can
+                        serve.
                     </p>
                     <p className="text-lg italic leading-relaxed">
-                        Use of physics in the human context. Showcase all our
-                        activity as a portfolio. Showcase ideas, build projects
-                        from ideas, gather a team, get funding.
+                        Use of physics in the human context. Explaining human
+                        context using basic physics we can explore a lot more
+                        than we do now. In a social context, we can have a new
+                        look.
                     </p>
                     <p className="text-lg underline leading-relaxed">
                         You need to learn control structures, flow,
                         acknowledgment theory, and hundreds of new theories
-                        we’ve developed to guide humanity forward.
+                        we’ve developed to guide humanity forward. All the above
+                        are based on some theories developed by
+                        twitter.com/sayeedkhalshi.
                     </p>
                 </div>
             </section>
