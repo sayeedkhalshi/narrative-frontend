@@ -1,6 +1,6 @@
 ## Linea Sepolia Addresses below
 
-# Learnea Contract - 0xE9580AF464071542Fa882C0B6497Da436120ba54
+# Narrative Contract - 0xE9580AF464071542Fa882C0B6497Da436120ba54
 
 # Term contract of Control Structure - 0xE792ded485888608D7Ab7a75f4D821D3D97Db6eA
 
