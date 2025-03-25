@@ -18,21 +18,21 @@ const Menu = () => {
                                 App
                             </Link>
                             <Link
-                                href="https://github.com/sayeedkhalshi/learnea-frontend"
+                                href="/app"
                                 className="nav-link"
                                 target="_blank"
                             >
                                 Code
                             </Link>
                             <Link
-                                href="https://github.com/sayeedkhalshi/learnea-dev-docs/blob/main/initial-philosophy-of-app.md"
+                                href="/app"
                                 className="nav-link"
                                 target="_blank"
                             >
                                 Whitepaper
                             </Link>
                             <Link
-                                href="https://docs.google.com/document/d/1CZJZGOgpnhuC0wVHnj1gvs3N3kLhJ7qmOSfRMLAWNlc/edit?usp=sharing"
+                                href="/app"
                                 className="nav-link"
                                 target="_blank"
                             >
