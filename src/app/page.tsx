@@ -1,3 +1,4 @@
+import BlockchainNodeSections from "@/components/Home/BlockchainNodeSections";
 import HomeNarrativeSection from "@/components/Home/HomeNarrativeSection";
 import QuoteSection from "@/components/Home/QuoteSection";
 
@@ -29,6 +30,8 @@ export default function LandingPage() {
             {/* Main Content */}
             {/*custom bg */}
             <HomeNarrativeSection />
+
+            <BlockchainNodeSections />
         </main>
     );
 }

@@ -1,3 +1,5 @@
+import { title } from "process";
+
 const HomeNarrativeSection = () => {
     const sections = [
         {
@@ -76,7 +78,30 @@ const HomeNarrativeSection = () => {
             title: "Economic Theory Implementation",
             content:
                 "Full implementation of my economic theory or control structure and community theory. I am also working on human interaction which might change things a lot for this project.",
-            designClass: "bg-gray-200 p-6 rounded-lg shadow-lg text-black",
+            designClass: "bg-red-200 p-6 rounded-lg shadow-lg text-black",
+        },
+        {
+            title: "Browser Based Node Network",
+            content:
+                "This part is yet to be decided. So far browser based node to self manage storage, node, transactions are the idea",
+            designClass: "bg-blue-300 p-6 rounded-lg shadow-lg text-black",
+        },
+        {
+            title: "Development",
+            content:
+                "User can asks for a feature and raise funds for it and associate devs. Features are approved by users or user specific. Community or user owned features. Features sell or buy or list",
+            designClass: "bg-green-400 p-6 rounded-lg shadow-lg text-black",
+        },
+        {
+            title: "Voting",
+            content:
+                "Voting by community but after only proving that the voter knows the stake.For each stakes users can debate and debate feature in the app with moderation will decide the result. Only passed ideas can be voted or automated voting if a idea is debated and proved. You basically work to vote, which means you vote only for the things you care. If previously it was passed then records can handle the result itself",
+            designClass: "bg-yellow-200 p-6 rounded-lg shadow-lg text-black",
+        },
+        {
+            title: "Debate",
+            content: "Debates are managed by a debating framework",
+            designClass: "bg-red-300 p-6 rounded-lg shadow-lg text-black",
         },
     ];
 

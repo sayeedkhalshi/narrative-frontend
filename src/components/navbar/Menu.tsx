@@ -17,25 +17,13 @@ const Menu = () => {
                             <Link href="/app" className="nav-link">
                                 App
                             </Link>
-                            <Link
-                                href="/app"
-                                className="nav-link"
-                                target="_blank"
-                            >
+                            <Link href="/app" className="nav-link">
                                 Code
                             </Link>
-                            <Link
-                                href="/app"
-                                className="nav-link"
-                                target="_blank"
-                            >
+                            <Link href="/app" className="nav-link">
                                 Whitepaper
                             </Link>
-                            <Link
-                                href="/app"
-                                className="nav-link"
-                                target="_blank"
-                            >
+                            <Link href="/app" className="nav-link">
                                 DevDoc
                             </Link>
                             <Link
