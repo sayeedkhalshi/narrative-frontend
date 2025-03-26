@@ -68,7 +68,7 @@ export default function LandingPage() {
 
             <BlockchainNodeSections />
 
-            <h3 className="text-3xl my-16 font-bold text-center">
+            <h3 className="text-3xl my-16 font-light underline text-center">
                 Terms Engeering initial concept deisgn (interactive)
             </h3>
 
