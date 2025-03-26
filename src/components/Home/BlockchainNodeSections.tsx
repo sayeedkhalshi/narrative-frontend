@@ -2,7 +2,8 @@ const BlockchainNodeSections = () => {
     const sections = [
         {
             title: "Self Mining",
-            content: "Can mine own transactions without needing money.",
+            content:
+                "Can mine own transactions without needing money. People will host nodes to use the app. The app can be a browser-based node network. But the idea will be explored after the web app developed",
         },
         {
             title: "Self Storage",
@@ -36,7 +37,7 @@ const BlockchainNodeSections = () => {
         {
             title: "Withdrawable Tokens",
             content:
-                "Non-tradable tokens can be withdrawn as another token if funded. Users can be funded to learn and earn, with achievements tracked beyond monetary gains.",
+                "Earned tokens are not tradeable. No other token is necessary. Non-tradable tokens can be withdrawn as another token if funded. Users can be funded to learn and earn, with achievements tracked beyond monetary gains.",
         },
         {
             title: "Purposeful Tokenization Standards",

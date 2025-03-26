@@ -7,7 +7,8 @@ export default function QuoteSection() {
                     of how the human brain learns - by letting a user follow a
                     personal narrative, not by random content that leads to
                     random learning that doesn't fit the narrative and creates
-                    confused souls.”
+                    confused souls trying to connect dots that are way to far
+                    from each other.”
                 </h4>
                 {/* <p className="text-md text-gray-600 font-semibold mt-4">
                     - <span className="text-blue-600">Abu Sayeed</span>

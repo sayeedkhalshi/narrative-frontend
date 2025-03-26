@@ -5,7 +5,7 @@ const HomeNarrativeSection = () => {
         {
             title: "Proof of Narrative",
             content:
-                "Enforces a narrative to a content. To solve some problems that exist in the human context, Narrative is an experimental project. Purpose to implement the solution to learning, communication, mental illness, or possibly economic control structures",
+                "Enforces a pre existing narrative to a newly created content that creates multilayered interconnected contents by design. To solve some problems that exist in the human context, Narrative is an experimental project. Purpose to implement the solution to learning, communication, mental illness, or possibly economic control structures",
             designClass: "bg-gray-100 p-6 rounded-lg shadow-md text-black",
         },
         {
@@ -29,7 +29,7 @@ const HomeNarrativeSection = () => {
         {
             title: "Terms",
             content:
-                "Name each story and sharable parts of it to bring discussion about it. An example of terms engineering in basic UI in the App section of this website - interconnected all the knowledge of the world. One thing finds out another thing. Basically curiosity-based learning, no matter which way it goes. Solves the resource management issue for a learner.",
+                "Name each story and sharable parts of it to bring discussion about it. An example of terms engineering in basic UI in the App section of this website or bottom of home page - interconnected all the knowledge of the world. One thing finds out another thing. Basically curiosity-based learning, no matter which way it goes. Solves the resource management issue for a learner.",
             designClass: "bg-red-50 p-6 rounded-lg shadow-lg text-black",
         },
         {
@@ -100,8 +100,15 @@ const HomeNarrativeSection = () => {
         },
         {
             title: "Debate",
-            content: "Debates are managed by a debating framework",
-            designClass: "bg-red-300 p-6 rounded-lg shadow-lg text-black",
+            content:
+                "Debates are managed by a debating framework. Debate must result to a result.",
+            designClass: "bg-green-300 p-6 rounded-lg shadow-lg text-black",
+        },
+        {
+            title: "Self versioning",
+            content:
+                "Based on current discovery of knowledge and flaws in our logic, the frameworks of learning and others should upgrade themselves by desig",
+            designClass: "bg-purple-300 p-6 rounded-lg shadow-lg text-black",
         },
     ];
 

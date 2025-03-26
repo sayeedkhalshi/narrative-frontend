@@ -1,13 +1,48 @@
+"use client";
+import { learnea_abi } from "@/abi/Learnea";
 import BlockchainNodeSections from "@/components/Home/BlockchainNodeSections";
 import HomeNarrativeSection from "@/components/Home/HomeNarrativeSection";
 import QuoteSection from "@/components/Home/QuoteSection";
+import TermsOnMap from "@/components/TermsOnMap";
+import { learnea_contract_address } from "@/lib/constant";
+import { setCentralTerms } from "@/redux/features/centralTerms.slice";
+import { useDispatch } from "react-redux";
+import { useReadContract } from "wagmi";
 
 export default function LandingPage() {
+    const dispatch = useDispatch();
+
+    const {
+        data: standaloneTerms,
+        error,
+        isPending,
+    } = useReadContract({
+        abi: learnea_abi,
+        address: learnea_contract_address, //control structure
+        functionName: "getStandaloneTerms",
+    });
+
+    if (isPending)
+        return (
+            <div className="flex justify-center items-center h-screen">
+                Loading...
+            </div>
+        );
+    if (error)
+        return (
+            <div className="flex justify-center items-center h-screen">
+                Error! {error.message}
+            </div>
+        );
+
+    const terms = standaloneTerms as `0x${string}`[];
+
+    dispatch(setCentralTerms(terms));
     const texts = [
         "Naming Personal Story",
         "Enforcing Narrative in Contents",
         "No Random Contents",
-        "Removing Learning Anxiety",
+        "Removing Force Learning, Learning Anxiety",
         "Connecting Thoughts",
     ];
     return (
@@ -32,6 +67,12 @@ export default function LandingPage() {
             <HomeNarrativeSection />
 
             <BlockchainNodeSections />
+
+            <h3 className="text-3xl my-16 font-bold text-center">
+                Terms Engeering initial concept deisgn (interactive)
+            </h3>
+
+            <TermsOnMap addressIndex={0} />
         </main>
     );
 }

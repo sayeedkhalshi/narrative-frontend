@@ -166,7 +166,7 @@ This style is for top 1000 terms
     text-transform: uppercase;
     text-shadow: 0px 0px 2px #8f9e8e;
     color: #4cc79e;
-    box-shadow: 0 4px 0px 1px #4b0909, 0 0 7px 22px #a2bda0 inset;
+    box-shadow: 0 2px 0px 1px #a98b8b, 0 0 7px 22px #a2bda0 inset;
 }
 
 svg {
