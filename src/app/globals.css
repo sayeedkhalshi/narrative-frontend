@@ -211,3 +211,44 @@ svg {
     background-color: #3c2b2b;
     color: blanchedalmond;
 }
+
+/* styles/globals.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes pulse-slow {
+    0%,
+    100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.03);
+    }
+}
+
+@keyframes float {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+.animate-pulse.ConcurrentModificationException-slow {
+    animation: pulse-slow 3s infinite ease-in-out;
+}
+
+.animate-float {
+    animation: float 4s infinite ease-in-out;
+}
+
+.delay-100 {
+    animation-delay: 1s;
+}
+
+.delay-200 {
+    animation-delay: 2s;
+}

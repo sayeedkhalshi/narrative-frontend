@@ -1,6 +1,7 @@
 "use client";
 import { learnea_abi } from "@/abi/Learnea";
 import BlockchainNodeSections from "@/components/Home/BlockchainNodeSections";
+import CarechainNarrativeFull from "@/components/Home/CarechainIdeas";
 import HomeNarrativeSection from "@/components/Home/HomeNarrativeSection";
 import QuoteSection from "@/components/Home/QuoteSection";
 import TermsOnMap from "@/components/TermsOnMap";
@@ -63,6 +64,7 @@ export default function LandingPage() {
                 ))}
             </section>
             {/* Main Content */}
+            <CarechainNarrativeFull />
             {/*custom bg */}
             <HomeNarrativeSection />
 
