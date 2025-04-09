@@ -78,7 +78,7 @@ const BlockchainNodeSections = () => {
             </svg>
 
             <div className="max-w-4xl mx-auto relative z-10 p-6">
-                <h2 className="text-4xl font-bold text-center py-5 rounded-lg mb-10 border-b-4 border-gray-700 bg-gray-400">
+                <h2 className="barrier-font text-4xl font-bold text-center py-5 rounded-lg mb-10 border-b-4 border-gray-700 bg-gray-400">
                     Blockchain Node Features
                 </h2>
                 <ul className="space-y-6">

@@ -113,25 +113,78 @@ const HomeNarrativeSection = () => {
     ];
 
     return (
-        <section className="py-20">
-            <h1 className="text-4xl font-extrabold text-center text-black mb-10">
-                Narrative
+        <section className="relative overflow-hidden py-32 px-6">
+            <h1 className="text-6xl font-black text-center text-zinc-800 mb-20 leading-tight tracking-tight barrier-font">
+                <span className="block">Ideas that</span>
+                <span className="block bg-gradient-to-r from-emerald-400 to-cyan-500 bg-clip-text text-transparent">
+                    Construct Realities
+                </span>
             </h1>
-            <div className="flex flex-col items-center gap-8">
-                {sections.map((section, index) => (
-                    <div
-                        key={index}
-                        className={`relative ${section.designClass} p-6 rounded-lg w-full max-w-2xl`}
-                    >
-                        <h2 className="text-2xl font-bold mb-2 text-black text-center">
-                            {section.title}
-                        </h2>
-                        <p className="text-lg text-black text-center">
-                            {section.content}
-                        </p>
-                    </div>
-                ))}
+
+            <div className="relative max-w-7xl mx-auto grid md:grid-cols-2 gap-20">
+                {sections.map((section, index) => {
+                    const blobColors = [
+                        "bg-gradient-to-br from-emerald-300 to-teal-200",
+                        "bg-gradient-to-br from-pink-300 to-fuchsia-400",
+                        "bg-gradient-to-br from-yellow-200 to-orange-300",
+                        "bg-gradient-to-br from-sky-300 to-indigo-300",
+                    ];
+
+                    return (
+                        <div
+                            key={index}
+                            className="relative p-10 rounded-3xl backdrop-blur-xl border border-white/20 shadow-xl"
+                        >
+                            {/* Background Orb */}
+                            <div
+                                className={`absolute -top-20 -left-20 w-72 h-72 rounded-full blur-3xl opacity-30 ${
+                                    blobColors[index % blobColors.length]
+                                } z-0`}
+                            />
+
+                            {/* Inner Content */}
+                            <div className="relative z-10 space-y-6">
+                                <h2 className="text-3xl font-extrabold text-zinc-800 text-center tracking-tight">
+                                    {section.title}
+                                </h2>
+                                <div className="h-[2px] w-12 bg-gradient-to-r from-emerald-400 to-cyan-400 mx-auto rounded-full" />
+                                <p className="text-lg text-zinc-600 text-center leading-relaxed">
+                                    {section.content}
+                                </p>
+                            </div>
+
+                            {/* Floating Icon */}
+                            <div className="absolute top-4 right-4 w-10 h-10 bg-white/20 backdrop-blur-md border border-white/30 rounded-full shadow-inner flex items-center justify-center text-zinc-700 font-bold text-sm">
+                                {index + 1}
+                            </div>
+                        </div>
+                    );
+                })}
             </div>
+
+            {/* Organic Floating SVG */}
+            <svg
+                className="absolute top-0 left-0 w-full pointer-events-none opacity-10"
+                viewBox="0 0 100 100"
+                preserveAspectRatio="none"
+            >
+                <path
+                    d="M0,100 C30,70 70,130 100,100 L100,0 L0,0 Z"
+                    fill="url(#fade)"
+                />
+                <defs>
+                    <linearGradient
+                        id="fade"
+                        x1="0%"
+                        y1="0%"
+                        x2="100%"
+                        y2="100%"
+                    >
+                        <stop offset="0%" stopColor="#d1fae5" />
+                        <stop offset="100%" stopColor="#bae6fd" />
+                    </linearGradient>
+                </defs>
+            </svg>
         </section>
     );
 };

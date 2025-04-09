@@ -42,7 +42,7 @@ const FreedomList: React.FC = () => {
         <section className="relative max-w-5xl mx-auto px-6 py-4 overflow-hidden">
             {/* Central Title */}
             <div className="text-center mb-12">
-                <h1 className="text-2xl md:text-5xl font-bold text-gray-700 animate-pulse-slow drop-shadow-[0_0_15px_rgba(0,255,255,0.7)]">
+                <h1 className="barrier-font text-2xl md:text-5xl font-bold text-gray-700 animate-pulse-slow drop-shadow-[0_0_15px_rgba(0,255,255,0.7)]">
                     Freedom of Web -
                 </h1>
             </div>

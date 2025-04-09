@@ -2,7 +2,7 @@ export default function CarechainNarrativeFull() {
     return (
         <div className="rounded-xl min-h-screen bg-gradient-to-b from-[#0f201a] to-[#162c23] text-white py-10 px-4 md:px-8 font-sans flex justify-center items-center">
             <div className="max-w-5xl w-full space-y-10">
-                <h1 className="text-center text-4xl md:text-5xl font-bold bg-gradient-to-r from-green-400 to-teal-300 bg-clip-text text-transparent">
+                <h1 className="barrier-font text-center text-4xl md:text-5xl font-bold bg-gradient-to-r from-green-400 to-teal-300 bg-clip-text text-transparent">
                     Open Source and Community Upgradable Frameworks To Maintain
                     Life
                 </h1>
