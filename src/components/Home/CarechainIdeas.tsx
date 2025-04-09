@@ -98,12 +98,13 @@ export default function CarechainNarrativeFull() {
 
                     <section className="space-y-4">
                         <h2 className="text-2xl font-semibold text-green-300 text-center">
-                            Connecting Thoughts
+                            Personal Framework{" "}
                         </h2>
                         <ul className="list-disc list-inside text-left text-zinc-200 space-y-2">
                             <li>Manage your own story, thoughts, ideas</li>
                             <li>
-                                Connect them, share them, create project on them
+                                Connect them, share them, create project on
+                                them, gather team who has same goal
                             </li>
                             <li>
                                 Make better decision from ideas that your brain
@@ -112,6 +113,10 @@ export default function CarechainNarrativeFull() {
                             <li>
                                 Help your predictibility by writing and
                                 analysing more
+                            </li>
+                            <li>
+                                Let people create personal framework for
+                                themselves that we forget
                             </li>
                         </ul>
                     </section>

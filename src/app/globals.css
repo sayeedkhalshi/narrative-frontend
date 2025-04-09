@@ -265,3 +265,145 @@ h2 {
         0 9px 0 2px #a4aaa4, 0 11px 0 3px #8f8f8f;
     font-size: 60px;
 }
+
+@keyframes float {
+    0% {
+        transform: translateY(0) translateX(0) rotate(0deg);
+        opacity: 0.5;
+    }
+    50% {
+        transform: translateY(-20px) translateX(10px) rotate(15deg);
+        opacity: 0.7;
+    }
+    100% {
+        transform: translateY(0) translateX(0) rotate(0deg);
+        opacity: 0.5;
+    }
+}
+
+.animate-ribbon-0 {
+    top: 10%;
+    left: 5%;
+    animation: float 6s infinite ease-in-out;
+}
+
+.animate-ribbon-1 {
+    top: 20%;
+    left: 15%;
+    animation: float 8s infinite ease-in-out;
+}
+
+.animate-ribbon-2 {
+    top: 30%;
+    left: 25%;
+    animation: float 7s infinite ease-in-out;
+}
+
+.animate-ribbon-3 {
+    top: 40%;
+    left: 35%;
+    animation: float 9s infinite ease-in-out;
+}
+
+.animate-ribbon-4 {
+    top: 50%;
+    left: 45%;
+    animation: float 6s infinite ease-in-out;
+}
+
+.animate-ribbon-5 {
+    top: 60%;
+    left: 55%;
+    animation: float 8s infinite ease-in-out;
+}
+
+.animate-ribbon-6 {
+    top: 70%;
+    left: 65%;
+    animation: float 7s infinite ease-in-out;
+}
+
+.animate-ribbon-7 {
+    top: 80%;
+    left: 75%;
+    animation: float 9s infinite ease-in-out;
+}
+
+.animate-ribbon-8 {
+    top: 90%;
+    left: 85%;
+    animation: float 6s infinite ease-in-out;
+}
+
+.animate-ribbon-9 {
+    top: 95%;
+    left: 95%;
+    animation: float 8s infinite ease-in-out;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) translateX(0) rotate(0deg);
+        opacity: 0.5;
+    }
+    50% {
+        transform: translateY(-20px) translateX(10px) rotate(15deg);
+        opacity: 0.7;
+    }
+    100% {
+        transform: translateY(0) translateX(0) rotate(0deg);
+        opacity: 0.5;
+    }
+}
+.animate-float {
+    animation: float infinite ease-in-out;
+}
+
+@keyframes drawPath {
+    from {
+        stroke-dasharray: 1000;
+        stroke-dashoffset: 1000;
+    }
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+.animate-draw {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: drawPath 3s forwards;
+}
+
+@keyframes tilt {
+    0%,
+    100% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(3deg);
+    }
+}
+.animate-tilt {
+    animation: tilt 5s ease-in-out infinite;
+}
+@keyframes dash {
+    from {
+        stroke-dashoffset: 100;
+    }
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes dash {
+    from {
+        stroke-dashoffset: 100;
+    }
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+path {
+    stroke-dasharray: 5;
+}
