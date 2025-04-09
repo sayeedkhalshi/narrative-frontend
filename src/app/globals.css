@@ -259,3 +259,9 @@ h2 {
 .barrier-font {
     font-family: "Barrio", system-ui;
 }
+
+.numbering {
+    box-shadow: 0 3px 0 #e4e4e4, 0 5px 0 #ccd0cc, 0 7px 0 #b7beb7,
+        0 9px 0 2px #a4aaa4, 0 11px 0 3px #8f8f8f;
+    font-size: 60px;
+}

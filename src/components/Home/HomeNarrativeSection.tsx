@@ -57,7 +57,7 @@ const HomeNarrativeSection = () => {
             designClass: "bg-pink-50 p-6 rounded-lg shadow-lg text-black",
         },
         {
-            title: "Tony Robbins' Leverage-based Personal Growth",
+            title: "Leverage-based Growth",
             content:
                 "Leverage-based personal growth and categorization of learning. Not based on subject and topic. By leverage, I mean - all the minimum necessary things in life you can categorize and move ahead.",
             designClass: "bg-orange-50 p-6 rounded-lg shadow-lg text-black",
@@ -153,9 +153,13 @@ const HomeNarrativeSection = () => {
                                 </p>
                             </div>
 
-                            {/* Floating Icon */}
-                            <div className="absolute top-4 right-4 w-10 h-10 bg-white/20 backdrop-blur-md border border-white/30 rounded-full shadow-inner flex items-center justify-center text-zinc-700 font-bold text-sm">
-                                {index + 1}
+                            {/* Floating Numbering */}
+                            <div className="absolute top-4 right-4 w-12 h-12 bg-gradient-to-br from-emerald-400 via-teal-300 to-cyan-400 p-[2px] rounded-full shadow-lg">
+                                <div className="flex items-center justify-center w-full h-full bg-white/20 backdrop-blur-md rounded-full border border-white/30 shadow-inner">
+                                    <span className="text-zinc-800 font-extrabold text-lg tracking-wide">
+                                        {index + 1}
+                                    </span>
+                                </div>
                             </div>
                         </div>
                     );

@@ -50,19 +50,31 @@ export default function LandingPage() {
         <main className="flex flex-col items-center justify-center min-h-screen p-8 text-gray-800">
             {/* Hero Section */}
             <QuoteSection />
-
             <section className="flex flex-col items-center justify-center py-20 space-y-6">
                 {texts.map((text, index) => (
                     <div
                         key={index}
-                        className="bg-white p-6 rounded-lg shadow-md transform transition-transform duration-300 hover:-translate-y-2"
+                        className="relative bg-white p-6 rounded-lg shadow-md transform transition-transform duration-300 hover:-translate-y-2 overflow-hidden group"
                     >
-                        <h2 className="text-xl font-bold text-black text-center">
+                        {/* LEFT Ribbon Stack */}
+                        <div className="absolute top-0 left-0 h-full w-1 rotate-[10deg] bg-emerald-100 opacity-80 rounded-sm transition-all duration-300 group-hover:shadow-[0_0_10px_2px_rgba(16,185,129,0.8)]" />
+                        <div className="absolute top-0 left-2 h-full w-1 rotate-[8deg] bg-green-200 opacity-70 rounded-sm transition-all duration-300 group-hover:shadow-[0_0_10px_2px_rgba(34,197,94,0.7)]" />
+                        <div className="absolute top-0 left-4 h-full w-1 rotate-[6deg] bg-lime-200 opacity-60 rounded-sm transition-all duration-300 group-hover:shadow-[0_0_10px_2px_rgba(163,230,53,0.6)]" />
+                        <div className="absolute top-0 left-6 h-full w-1 rotate-[4deg] bg-teal-100 opacity-50 rounded-sm transition-all duration-300 group-hover:shadow-[0_0_10px_2px_rgba(45,212,191,0.5)]" />
+
+                        {/* RIGHT Ribbon Stack */}
+                        <div className="absolute top-0 right-0 h-full w-1 -rotate-[10deg] bg-emerald-100 opacity-80 rounded-sm transition-all duration-300 group-hover:shadow-[0_0_10px_2px_rgba(16,185,129,0.8)]" />
+                        <div className="absolute top-0 right-2 h-full w-1 -rotate-[8deg] bg-green-200 opacity-70 rounded-sm transition-all duration-300 group-hover:shadow-[0_0_10px_2px_rgba(34,197,94,0.7)]" />
+                        <div className="absolute top-0 right-4 h-full w-1 -rotate-[6deg] bg-lime-200 opacity-60 rounded-sm transition-all duration-300 group-hover:shadow-[0_0_10px_2px_rgba(163,230,53,0.6)]" />
+                        <div className="absolute top-0 right-6 h-full w-1 -rotate-[4deg] bg-teal-100 opacity-50 rounded-sm transition-all duration-300 group-hover:shadow-[0_0_10px_2px_rgba(45,212,191,0.5)]" />
+
+                        <h2 className="text-xl font-bold text-black text-center relative z-10">
                             {text}
                         </h2>
                     </div>
                 ))}
             </section>
+
             {/* Main Content */}
             <CarechainNarrativeFull />
             {/*custom bg */}
