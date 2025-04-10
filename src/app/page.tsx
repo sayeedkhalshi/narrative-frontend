@@ -50,26 +50,123 @@ export default function LandingPage() {
         <main className="flex flex-col items-center justify-center min-h-screen p-8 text-gray-800">
             {/* Hero Section */}
             <QuoteSection />
-
             <section className="flex flex-col items-center justify-center py-20 space-y-6">
-                {" "}
                 {texts.map((text, index) => (
                     <div
                         key={index}
-                        className="relative bg-white p-6 rounded-lg shadow-md transform transition-transform duration-300 hover:-translate-y-2 overflow-hidden group"
+                        className="relative bg-white p-2 rounded-lg shadow-md transform transition-transform duration-300 hover:-translate-y-2 overflow-hidden group"
                     >
-                        {" "}
-                        {/* LEFT Ribbon Stack */}{" "}
-                        <div className="absolute top-0 left-0 h-full w-1 rotate-[10deg] bg-emerald-100 opacity-80 rounded-sm transition-all duration-300 group-hover:shadow-[0_0_10px_2px_rgba(16,185,129,0.8)]" />{" "}
-                        <div className="absolute top-0 left-2 h-full w-1 rotate-[8deg] bg-green-200 opacity-70 rounded-sm transition-all duration-300 group-hover:shadow-[0_0_10px_2px_rgba(34,197,94,0.7)]" />{" "}
-                        <div className="absolute top-0 left-4 h-full w-1 rotate-[6deg] bg-lime-200 opacity-60 rounded-sm transition-all duration-300 group-hover:shadow-[0_0_10px_2px_rgba(163,230,53,0.6)]" />{" "}
-                        <div className="absolute top-0 left-6 h-full w-1 rotate-[4deg] bg-teal-100 opacity-50 rounded-sm transition-all duration-300 group-hover:shadow-[0_0_10px_2px_rgba(45,212,191,0.5)]" />
+                        {/* LEFT — 20 Thin Ribbons */}
+                        {Array.from({ length: 20 }).map((_, i) => {
+                            const rotate = 12 - i * 1.2;
+                            const leftOffset = i * 0.5;
+                            const colors = [
+                                "bg-emerald-100",
+                                "bg-green-100",
+                                "bg-lime-100",
+                                "bg-teal-100",
+                                "bg-emerald-50",
+                                "bg-green-50",
+                                "bg-lime-50",
+                                "bg-teal-50",
+                            ];
+                            const opacities = [80, 70, 60, 50, 40, 30, 20];
+                            const shadowGlow = [
+                                "rgba(16,185,129,0.5)",
+                                "rgba(34,197,94,0.5)",
+                                "rgba(190,242,100,0.4)",
+                                "rgba(153,246,228,0.4)",
+                            ];
+                            const color = colors[i % colors.length];
+                            const opacity = opacities[i % opacities.length];
+                            const glow = shadowGlow[i % shadowGlow.length];
+
+                            return (
+                                <div
+                                    key={`left-${i}`}
+                                    className={`absolute top-0 left-[${leftOffset}px] h-full w-px ${color} opacity-${opacity} rounded-sm`}
+                                    style={{
+                                        transform: `rotate(${rotate}deg)`,
+                                        transition: "all 0.3s ease",
+                                        boxShadow: `0 0 8px 1px ${glow}`,
+                                        transitionDelay: `${i * 10}ms`,
+                                    }}
+                                />
+                            );
+                        })}
+
+                        {/* RIGHT — 20 Thin Ribbons */}
+                        {Array.from({ length: 20 }).map((_, i) => {
+                            const rotate = -12 + i * 1.2;
+                            const rightOffset = i * 0.5;
+                            const colors = [
+                                "bg-teal-100",
+                                "bg-lime-100",
+                                "bg-green-100",
+                                "bg-emerald-100",
+                                "bg-teal-50",
+                                "bg-lime-50",
+                                "bg-green-50",
+                                "bg-emerald-50",
+                            ];
+                            const opacities = [80, 70, 60, 50, 40, 30, 20];
+                            const shadowGlow = [
+                                "rgba(45,212,191,0.4)",
+                                "rgba(163,230,53,0.4)",
+                                "rgba(74,222,128,0.5)",
+                                "rgba(16,185,129,0.5)",
+                            ];
+                            const color = colors[i % colors.length];
+                            const opacity = opacities[i % opacities.length];
+                            const glow = shadowGlow[i % shadowGlow.length];
+
+                            return (
+                                <div
+                                    key={`right-${i}`}
+                                    className={`absolute top-0 right-[${rightOffset}px] h-full w-px ${color} opacity-${opacity} rounded-sm`}
+                                    style={{
+                                        transform: `rotate(${rotate}deg)`,
+                                        transition: "all 0.3s ease",
+                                        boxShadow: `0 0 8px 1px ${glow}`,
+                                        transitionDelay: `${i * 10}ms`,
+                                    }}
+                                />
+                            );
+                        })}
                         {/* RIGHT Ribbon Stack */}
-                        <div className="absolute top-0 right-0 h-full w-1 -rotate-[10deg] bg-emerald-100 opacity-80 rounded-sm transition-all duration-300 group-hover:shadow-[0_0_10px_2px_rgba(16,185,129,0.8)]" />
-                        <div className="absolute top-0 right-2 h-full w-1 -rotate-[8deg] bg-green-200 opacity-70 rounded-sm transition-all duration-300 group-hover:shadow-[0_0_10px_2px_rgba(34,197,94,0.7)]" />
-                        <div className="absolute top-0 right-4 h-full w-1 -rotate-[6deg] bg-lime-200 opacity-60 rounded-sm transition-all duration-300 group-hover:shadow-[0_0_10px_2px_rgba(163,230,53,0.6)]" />
-                        <div className="absolute top-0 right-6 h-full w-1 -rotate-[4deg] bg-teal-100 opacity-50 rounded-sm transition-all duration-300 group-hover:shadow-[0_0_10px_2px_rgba(45,212,191,0.5)]" />
-                        <h2 className="px-8 py-4 text-xl font-bold text-black text-center relative z-10">
+                        {Array.from({ length: 6 }).map((_, i) => {
+                            const colors = [
+                                // 🌿 Softest (far right)
+                                "bg-[#f0fdf4]", // soft mist green
+                                "bg-[#e6f4ea]",
+                                "bg-[#dcfce7]",
+                                "bg-[#d1fae5]",
+                                "bg-[#ccfbf1]",
+
+                                // 🍃 Medium
+                                "bg-[#bbf7d0]",
+                                "bg-[#a7f3d0]",
+                                "bg-[#99f6e4]",
+                                "bg-[#86efac]",
+                                "bg-[#bef264]",
+                            ];
+
+                            const color = colors[i % colors.length];
+                            const rotation = -13 + i * 0.5;
+                            const right = i * 2; // 2px spacing
+
+                            return (
+                                <div
+                                    key={i}
+                                    className={`absolute top-0 h-full w-px ${color} opacity-70 rounded-sm transition-all duration-300 group-hover:shadow-[0_0_8px_1px_rgba(34,197,94,0.5)]`}
+                                    style={{
+                                        right: `${right}px`,
+                                        transform: `rotate(${rotation}deg)`,
+                                    }}
+                                />
+                            );
+                        })}
+                        <h2 className="px-8 py-4 text-xl font-bold text-black text-center relative z-10 uchen-font">
                             {text}
                         </h2>
                     </div>
