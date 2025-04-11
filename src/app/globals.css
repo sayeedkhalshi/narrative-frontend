@@ -411,3 +411,102 @@ h2 {
 path {
     stroke-dasharray: 5;
 }
+
+@keyframes spin-slow {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.animate-spin-slow {
+    animation: spin-slow 60s linear infinite;
+}
+
+@keyframes scroll-ribbon {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.animate-scroll-ribbon {
+    animation: scroll-ribbon 60s linear infinite;
+}
+
+@keyframes floatRibbon {
+    0% {
+        transform: translateY(0);
+        opacity: 0.7;
+    }
+    100% {
+        transform: translateY(-2000px);
+        opacity: 0;
+    }
+}
+
+@layer utilities {
+    .animate-pulse-slow {
+        animation: pulseSlow 8s ease-in-out infinite;
+    }
+
+    @keyframes pulseSlow {
+        0%,
+        100% {
+            opacity: 0.1;
+        }
+        50% {
+            opacity: 0.3;
+        }
+    }
+}
+
+@keyframes floaty {
+    0% {
+        transform: translateY(0) scale(1);
+    }
+    100% {
+        transform: translateY(-60px) scale(1.2);
+    }
+}
+
+@keyframes shardSweep {
+    0% {
+        transform: translateX(-100%) rotate(-45deg);
+    }
+    100% {
+        transform: translateX(200%) rotate(-45deg);
+    }
+}
+
+@keyframes pulseScan {
+    0%,
+    100% {
+        transform: scaleX(0.1);
+        opacity: 0.3;
+    }
+    50% {
+        transform: scaleX(1);
+        opacity: 1;
+    }
+}
+
+@keyframes glowText {
+    0%,
+    100% {
+        text-shadow: 0 0 10px #14f195, 0 0 20px #14f19540;
+    }
+    50% {
+        text-shadow: 0 0 25px #14f195, 0 0 40px #14f19580;
+    }
+}
+
+/* Add to globals.css */
+.neon-text {
+    color: #0f0;
+    text-shadow: 0 0 5px #0f0, 0 0 10px #0f0, 0 0 20px #0f0;
+}

@@ -1,5 +1,6 @@
 "use client";
 import { learnea_abi } from "@/abi/Learnea";
+import FuturisticNodeFeatures from "@/components/Home/BlockchainNodeSections";
 import BlockchainNodeSections from "@/components/Home/BlockchainNodeSections";
 import CarechainNarrativeFull from "@/components/Home/CarechainIdeas";
 import HomeNarrativeSection from "@/components/Home/HomeNarrativeSection";
@@ -177,9 +178,9 @@ export default function LandingPage() {
             <CarechainNarrativeFull />
             {/*custom bg */}
             <HomeNarrativeSection />
-            <BlockchainNodeSections />
+            <FuturisticNodeFeatures />
             <h3 className="text-3xl my-16 font-light underline text-center">
-                Terms Engeering initial concept deisgn (interactive)
+                Demo Terms Engeering initial concept deisgn (interactive)
             </h3>
             <TermsOnMap addressIndex={0} />
         </main>

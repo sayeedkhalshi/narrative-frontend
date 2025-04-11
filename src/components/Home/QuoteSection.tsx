@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import FreedomList from "./FreedomList";
+import FloatingRibbonsUpward from "./FloatingRibbonsUpward";
 
 export default function QuoteSection() {
     const [isOpen, setIsOpen] = useState(false);
@@ -285,6 +286,26 @@ export default function QuoteSection() {
                     </div>{" "}
                 </div>
                 <div className="mt-6">
+                    <FloatingRibbonsUpward
+                        style={{
+                            left: "1rem",
+                            top: "50%",
+                            transform:
+                                "translateY(-50%) rotate(-20deg) scale(1.2)",
+                            zIndex: 1,
+                        }}
+                        amount={30}
+                    />
+                    <FloatingRibbonsUpward
+                        style={{
+                            right: "1rem",
+                            top: "50%",
+                            transform:
+                                "translateY(-50%) rotate(20deg) scale(1.2)",
+                            zIndex: 1,
+                        }}
+                        amount={30}
+                    />
                     <button
                         onClick={() => setIsOpen(true)}
                         className="relative overflow-hidden px-10 py-5 text-xl font-light text-white uppercase tracking-wider bg-gradient-to-r from-green-500 via-emerald-600 to-teal-500 rounded-full shadow-2xl hover:shadow-green-600/50 transition-all duration-500 ease-in-out transform hover:-translate-y-2 active:scale-95 uchen-font"

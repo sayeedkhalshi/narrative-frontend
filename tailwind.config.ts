@@ -24,9 +24,15 @@ const config: Config = {
                             "0 0 20px #2e6a25, 0 0 30px #2e6a25, 0 0 40px #2e6a25, 0 0 50px #2e6a25, 0 0 60px #2e6a25",
                     },
                 },
+                floatSideRibbon: {
+                    "0%": { transform: "translateY(0)" },
+                    "100%": { transform: "translateY(-20px)" },
+                },
             },
             animation: {
                 glow: "glow 2s infinite",
+                floatSideRibbon:
+                    "floatSideRibbon 10s ease-in-out infinite alternate",
             },
             transitionProperty: {
                 all: "all",
