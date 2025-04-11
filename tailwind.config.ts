@@ -30,9 +30,14 @@ const config: Config = {
                 },
             },
             animation: {
+                "spin-slow": "spin 20s linear infinite",
+
                 glow: "glow 2s infinite",
                 floatSideRibbon:
                     "floatSideRibbon 10s ease-in-out infinite alternate",
+            },
+            dropShadow: {
+                "neon-green": ["0 0 10px #22c55e", "0 0 20px #22c55e"],
             },
             transitionProperty: {
                 all: "all",

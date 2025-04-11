@@ -72,6 +72,8 @@ const sections = [
 // components/BlockchainSection.tsx
 import React from "react";
 import FloatingRibbonsUpward from "./FloatingRibbonsUpward";
+import QuantumResonanceTriCore from "./QuantumResonanceTriCore";
+import QuantumNeuralLensArray from "./QuantumNeuralLense";
 
 export default function FuturisticNodeFeatures() {
     return (
@@ -135,6 +137,7 @@ export default function FuturisticNodeFeatures() {
             <h2 className="relative z-10 text-center text-6xl sm:text-7xl font-black leading-tight tracking-tight mb-20 barrier-font text-[forestgreen]">
                 Blockchain Node Features
             </h2>
+            <QuantumResonanceTriCore />
 
             {/* Feature Cards */}
             <div className="relative z-10 max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
@@ -166,11 +169,14 @@ export default function FuturisticNodeFeatures() {
                                 amount={20}
                             />
                             <h3 className="text-xl sm:text-2xl font-semibold flex items-center gap-3 text-cyan-200 tracking-wide p-4 bg-cyan-800/10 rounded-md backdrop-blur-sm shadow-inner shadow-cyan-500/10">
+                                <QuantumNeuralLensArray />
                                 <span className="text-2xl sm:text-3xl">
                                     {section.icon}
                                 </span>
                                 {section.title}
                             </h3>
+                            <QuantumNeuralLensArray />
+
                             <p className="text-base sm:text-lg text-gray-100/90 leading-relaxed p-4 bg-white/5 rounded-md backdrop-blur-sm">
                                 {section.content}
                             </p>

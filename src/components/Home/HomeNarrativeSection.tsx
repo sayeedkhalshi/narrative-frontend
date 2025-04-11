@@ -1,4 +1,8 @@
 import React from "react";
+import IndustrialSpinner from "./IndustrialSpinner";
+import NeuralPlasmaBloom from "./NeuralPlasmaBloom";
+import QuantumRippleMesh from "./QuantumRippleMesh";
+import QuantumRippleMulti from "./QuantumRippleMulti";
 
 const getOverlaySVG = (index: number) => {
     switch (index % 4) {
@@ -258,6 +262,7 @@ const HomeNarrativeSection = () => {
     return (
         <section className="relative overflow-hidden py-32 px-6">
             <h1 className="text-6xl font-black text-center text-zinc-800 mb-20 leading-tight tracking-tight barrier-font">
+                <NeuralPlasmaBloom />
                 <span className="block">Ideas that</span>
                 <span className="block bg-gradient-to-r from-emerald-400 to-cyan-500 bg-clip-text text-transparent">
                     Construct Realities
@@ -290,6 +295,8 @@ const HomeNarrativeSection = () => {
 
                             {/* Inner Content */}
                             <div className="relative z-10 space-y-6">
+                                <QuantumRippleMulti />
+
                                 <h2 className="text-3xl font-extrabold text-zinc-800 text-center tracking-tight">
                                     {section.title}
                                 </h2>

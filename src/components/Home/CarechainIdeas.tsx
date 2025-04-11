@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import FloatingRibbonsUpward from "./FloatingRibbonsUpward";
+import IndustrialSpinner from "./IndustrialSpinner";
+import NeuralDomeEngine from "./NeuralDomeEngine";
 
 const FloatingRibbons = ({ style }: { style?: React.CSSProperties }) => (
     <div
@@ -46,6 +48,7 @@ export default function CarechainNarrativeFull() {
                 }}
                 amount={200}
             />
+
             <div className="relative z-20 max-w-6xl mx-auto">
                 <h1 className="text-4xl md:text-5xl text-center font-bold bg-gradient-to-r from-emerald-400 to-green-300 bg-clip-text text-transparent mb-10">
                     Open Source and Community Upgradable Frameworks To Maintain
@@ -58,16 +61,22 @@ export default function CarechainNarrativeFull() {
                 </p>
 
                 <WowSlider>
-                    {/* Slides */}
                     {sections.map((section, i) => (
-                        <section
-                            key={i}
-                            className="p-8 md:p-10 bg-[#072b21] border border-emerald-900 rounded-3xl shadow-xl text-zinc-200"
-                        >
-                            {section}
-                        </section>
+                        <div className="relative">
+                            <AboveTheLine index={i} />
+                            <section
+                                key={i}
+                                className="p-8 md:p-10 bg-[#072b21] border border-emerald-900 rounded-3xl shadow-xl text-zinc-200 relative z-20"
+                            >
+                                {section}
+                            </section>
+                        </div>
                     ))}
                 </WowSlider>
+            </div>
+
+            <div style={{ opacity: 0.3 }}>
+                <NeuralDomeEngine />
             </div>
         </div>
     );
@@ -243,3 +252,88 @@ const sections = [
         ))}
     </div>,
 ];
+
+const AboveTheLine = ({ index }: { index: number }) => {
+    const variants = [
+        <svg className="w-full h-16" viewBox="0 0 600 100" fill="none">
+            <path
+                d="M0,60 C150,0 450,0 600,60"
+                stroke="url(#grad1)"
+                strokeWidth="2"
+            />
+            <defs>
+                <linearGradient id="grad1" x1="0" x2="600" y1="0" y2="0">
+                    <stop offset="0%" stopColor="#00ffcc" />
+                    <stop offset="100%" stopColor="#33ff66" />
+                </linearGradient>
+            </defs>
+        </svg>,
+        <svg className="w-full h-16" viewBox="0 0 600 100" fill="none">
+            <circle
+                cx="300"
+                cy="50"
+                r="45"
+                stroke="url(#grad2)"
+                strokeWidth="3"
+                strokeDasharray="8 4"
+            />
+            <defs>
+                <linearGradient id="grad2" x1="0" x2="600" y1="0" y2="0">
+                    <stop offset="0%" stopColor="#00ffaa" />
+                    <stop offset="100%" stopColor="#00ffff" />
+                </linearGradient>
+            </defs>
+        </svg>,
+        <svg className="w-full h-16" viewBox="0 0 600 100" fill="none">
+            <path
+                d="M100 50 Q300 0 500 50"
+                stroke="url(#grad3)"
+                strokeWidth="2"
+            />
+            <defs>
+                <linearGradient id="grad3" x1="0" x2="600" y1="0" y2="0">
+                    <stop offset="0%" stopColor="#44ffcc" />
+                    <stop offset="100%" stopColor="#88ffaa" />
+                </linearGradient>
+            </defs>
+        </svg>,
+        <svg className="w-full h-16" viewBox="0 0 600 100" fill="none">
+            <g stroke="url(#grad4)" strokeWidth="2" strokeLinecap="round">
+                {[...Array(10)].map((_, i) => (
+                    <line
+                        key={i}
+                        x1={i * 60 + 10}
+                        y1="80"
+                        x2={i * 60 + 30}
+                        y2="20"
+                    />
+                ))}
+            </g>
+            <defs>
+                <linearGradient id="grad4" x1="0" x2="600" y1="0" y2="0">
+                    <stop offset="0%" stopColor="#88ffcc" />
+                    <stop offset="100%" stopColor="#ccffaa" />
+                </linearGradient>
+            </defs>
+        </svg>,
+        <svg className="w-full h-16" viewBox="0 0 600 100" fill="none">
+            <path
+                d="M0,100 Q150,30 300,70 T600,30"
+                stroke="url(#grad5)"
+                strokeWidth="2"
+            />
+            <defs>
+                <linearGradient id="grad5" x1="0" x2="600" y1="0" y2="0">
+                    <stop offset="0%" stopColor="#00ffaa" />
+                    <stop offset="100%" stopColor="#00ff88" />
+                </linearGradient>
+            </defs>
+        </svg>,
+    ];
+
+    return (
+        <div className="absolute -top-6 left-0 right-0 z-10 pointer-events-none">
+            {variants[index % variants.length]}
+        </div>
+    );
+};

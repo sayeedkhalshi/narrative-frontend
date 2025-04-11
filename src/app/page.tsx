@@ -4,6 +4,10 @@ import FuturisticNodeFeatures from "@/components/Home/BlockchainNodeSections";
 import BlockchainNodeSections from "@/components/Home/BlockchainNodeSections";
 import CarechainNarrativeFull from "@/components/Home/CarechainIdeas";
 import HomeNarrativeSection from "@/components/Home/HomeNarrativeSection";
+import IndustrialSpinner from "@/components/Home/IndustrialSpinner";
+import NeuralDomeEngine from "@/components/Home/NeuralDomeEngine";
+import NeuralPlasmaBloom from "@/components/Home/NeuralPlasmaBloom";
+import QuantumRippleMesh from "@/components/Home/QuantumRippleMesh";
 import QuoteSection from "@/components/Home/QuoteSection";
 import TermsOnMap from "@/components/TermsOnMap";
 import { learnea_contract_address } from "@/lib/constant";
@@ -178,11 +182,30 @@ export default function LandingPage() {
             <CarechainNarrativeFull />
             {/*custom bg */}
             <HomeNarrativeSection />
+
+            <QuantumRippleMesh />
             <FuturisticNodeFeatures />
-            <h3 className="text-3xl my-16 font-light underline text-center">
+
+            <div
+                className="absolute"
+                style={{
+                    opacity: 0.4,
+                    marginTop: "240px",
+                }}
+            >
+                <IndustrialSpinner />
+            </div>
+
+            <h3 className="text-3xl my-16 font-light underline text-center barrier-font">
                 Demo Terms Engeering initial concept deisgn (interactive)
             </h3>
-            <TermsOnMap addressIndex={0} />
+            <div
+                style={{
+                    scale: 1.1,
+                }}
+            >
+                <TermsOnMap addressIndex={0} />
+            </div>
         </main>
     );
 }
