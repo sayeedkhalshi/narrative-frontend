@@ -175,7 +175,7 @@ export default function FuturisticNodeFeatures() {
                                 </span>
                                 {section.title}
                             </h3>
-                            <QuantumNeuralLensArray />
+                            {/* <QuantumNeuralLensArray /> */}
 
                             <p className="text-base sm:text-lg text-gray-100/90 leading-relaxed p-4 bg-white/5 rounded-md backdrop-blur-sm">
                                 {section.content}

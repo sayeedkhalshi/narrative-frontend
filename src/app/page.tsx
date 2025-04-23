@@ -183,10 +183,10 @@ export default function LandingPage() {
             {/*custom bg */}
             <HomeNarrativeSection />
 
-            <QuantumRippleMesh />
+            {/* <QuantumRippleMesh /> */}
             <FuturisticNodeFeatures />
 
-            <div
+            {/* <div
                 className="absolute"
                 style={{
                     opacity: 0.4,
@@ -194,7 +194,7 @@ export default function LandingPage() {
                 }}
             >
                 <IndustrialSpinner />
-            </div>
+            </div> */}
 
             <h3 className="text-3xl my-16 font-light underline text-center barrier-font">
                 Demo Terms Engeering initial concept deisgn (interactive)

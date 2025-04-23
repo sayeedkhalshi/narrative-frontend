@@ -26,7 +26,7 @@ export default function CarechainNarrativeFull() {
     return (
         <div className="rounded-xl min-h-screen bg-gradient-to-br from-[#001e1b] via-[#002d25] to-[#003d2f] text-white px-4 md:px-12 py-16 font-sans relative">
             {/* Elegant moving ribbons */}
-            <FloatingRibbons style={{ top: "5%", left: "10%" }} />
+            {/* <FloatingRibbons style={{ top: "5%", left: "10%" }} />
             <FloatingRibbons style={{ top: "30%", right: "15%" }} />
             <FloatingRibbons style={{ bottom: "10%", left: "5%" }} />
             <FloatingRibbons style={{ bottom: "25%", right: "10%" }} />
@@ -47,7 +47,7 @@ export default function CarechainNarrativeFull() {
                     zIndex: 1,
                 }}
                 amount={200}
-            />
+            /> */}
 
             <div className="relative z-20 max-w-6xl mx-auto">
                 <h1 className="text-4xl md:text-5xl text-center font-bold bg-gradient-to-r from-emerald-400 to-green-300 bg-clip-text text-transparent mb-10">
