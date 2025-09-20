@@ -22,7 +22,7 @@ const lineaSepolia = {
     rpcUrls: {
         default: {
             http: [
-                "https://linea-sepolia.infura.io/v3/24NvPKnk43M4PcAuOPParAN3AFB",
+                "https://linea-sepolia.infura.io/v3/da756f30d79b429aa4fa6e734541d5c0",
             ],
         },
     },
